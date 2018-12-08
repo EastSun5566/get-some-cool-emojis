@@ -1,15 +1,20 @@
 {
   "name": "get-some-cool-emojis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "👌 Just get some random 🔥🎉🐳 Emojis ✨🚀💩",
+  "main": "dist/main.js",
+  "files": [
+    "dist/main.js"
+  ],
   "scripts": {
     "dev": "npm run build && node dist/main",
     "build": "webpack --mode=production"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "emoji"
+  ],
+  "author": "汪東陽 EastSun5566",
+  "license": "MIT",
   "dependencies": {
     "emojis-list": "^2.1.0"
   },
