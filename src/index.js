@@ -1,6 +1,6 @@
-import emojisList from 'emojis-list';
+const emojisList = require('emojis-list');
 
-export default (num) => {
+module.exports = (num) => {
   const emojiNumber = parseInt(num);
   let emojiString = '';
 

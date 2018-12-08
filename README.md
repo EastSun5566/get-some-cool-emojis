@@ -1,6 +1,6 @@
-# Get Some cool Emojis
+# Get Some Cool Emojis
 
-> 👌 Just get some random 🔥🎉🐳 Emojis ✨🚀💩
+> 👌 Just generate some random 🔥🎉🐳 Emojis ✨🚀💩
 
 ## Install
 
