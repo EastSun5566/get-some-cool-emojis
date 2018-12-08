@@ -5,5 +5,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: resolve(__dirname, 'dist'),
+    library: 'get-some-cool-emojis',
+    libraryTarget: 'umd',
   },
 };
