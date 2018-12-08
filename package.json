@@ -1,13 +1,13 @@
 {
   "name": "get-some-cool-emojis",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "👌 Just generate some random 🔥🎉🐳 Emojis ✨🚀💩",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "files": [
-    "dist/main.js"
+    "dist/index.js"
   ],
   "scripts": {
-    "dev": "webpack --mode=development && node dist/main",
+    "dev": "webpack --mode=development && node dist",
     "build": "webpack --mode=production"
   },
   "keywords": [
@@ -24,6 +24,9 @@
     "emojis-list": "^2.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
