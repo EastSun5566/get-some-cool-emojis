@@ -7,5 +7,6 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
     library: 'get-some-cool-emojis',
     libraryTarget: 'umd',
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
 };

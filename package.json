@@ -7,7 +7,7 @@
     "dist/main.js"
   ],
   "scripts": {
-    "dev": "npm run build && node dist/main",
+    "dev": "webpack --mode=development && node dist/main",
     "build": "webpack --mode=production"
   },
   "keywords": [
