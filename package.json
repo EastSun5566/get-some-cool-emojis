@@ -1,7 +1,7 @@
 {
   "name": "get-some-cool-emojis",
   "version": "1.0.6",
-  "description": "👌 Just generate some random 🔥🎉🐳 Emojis ✨🚀💩",
+  "description": "🎉 Just generate some random 🔥🎉🐳 Emojis ✨🚀💩",
   "main": "dist/index.js",
   "files": [
     "dist/index.js"
