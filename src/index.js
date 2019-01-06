@@ -1,7 +1,7 @@
 const emojisList = require('emojis-list');
 
-module.exports = (num) => {
-  const emojiNumber = parseInt(num);
+module.exports = (num = 0) => {
+  const emojiNumber = Math.floor(Number(num)) || 0;
   let emojiString = '';
 
   for (let i = 0; i < emojiNumber; i++) {
