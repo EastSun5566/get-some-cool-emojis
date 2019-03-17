@@ -1,14 +1,14 @@
 {
   "name": "get-some-cool-emojis",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "🏭 Just generate some random Emojis 🎉✨🔧🐛💩",
   "main": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
   "scripts": {
-    "dev": "webpack --mode=development && node dist",
-    "build": "webpack --mode=production",
+    "dev": "npm run test && webpack --mode=development",
+    "build": "npm run test && webpack --mode=production",
     "test": "jest",
     "lint": "eslint --fix --ignore-path .gitignore ."
   },

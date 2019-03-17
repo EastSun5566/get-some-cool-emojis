@@ -2,7 +2,7 @@
 
 > 🏭 Just generate some random Emojis 🎉✨🔧🐛💩
 
-## Install
+## ✨ Install
 
 ```sh
 npm i get-some-cool-emojis
@@ -14,18 +14,31 @@ or
 yarn add get-some-cool-emojis
 ```
 
-## Useage
+## 🚀 Useage
 
 ```js
 const getSomeCoolEmojis = require("get-some-cool-emojis");
+// or import getSomeCoolEmojis from "get-some-cool-emojis";
 
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
 
-or
+## 🔧 Develop
 
-```js
-import getSomeCoolEmojis from "get-some-cool-emojis";
+```sh
+yarn
 
-getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
+cd src/main.js
+
+# Fix style
+yarn lint
+
+# Test file
+yarn test
+
+# Build for develop
+yarn dev
+
+# Build for production
+yarn build
 ```
