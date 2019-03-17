@@ -8,7 +8,9 @@
   ],
   "scripts": {
     "dev": "webpack --mode=development && node dist",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "test": "jest",
+    "lint": "eslint --fix --ignore-path .gitignore ."
   },
   "keywords": [
     "emoji"
@@ -27,9 +29,11 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
+    "emoji-regex": "^8.0.0",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.5.0",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   }
