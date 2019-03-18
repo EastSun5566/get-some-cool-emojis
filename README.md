@@ -6,18 +6,16 @@
 
 ```sh
 npm i get-some-cool-emojis
-```
 
-or
-
-```sh
-yarn add get-some-cool-emojis
+# or yarn add get-some-cool-emojis
 ```
 
 ## 🚀 Useage
 
 ```js
-const getSomeCoolEmojis = require("get-some-cool-emojis"); // or import getSomeCoolEmojis from "get-some-cool-emojis";
+const getSomeCoolEmojis = require("get-some-cool-emojis");
+
+// or import getSomeCoolEmojis from "get-some-cool-emojis";
 
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
@@ -38,3 +36,7 @@ yarn test
 # Build for production
 yarn build
 ```
+
+## 💻 Demo
+
+<https://get-some-cool-emojis.now.sh/>
