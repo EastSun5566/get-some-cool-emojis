@@ -10,7 +10,7 @@ module.exports = (num = 0) => {
       { length: emojiNumber },
       () => emojisList[getRandomInt()],
     )
-    .join();
+    .join('');
 
   return emojiString;
 };
