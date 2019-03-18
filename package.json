@@ -7,7 +7,6 @@
     "dist/index.js"
   ],
   "scripts": {
-    "dev": "npm run test && webpack --mode=development",
     "build": "npm run test && webpack --mode=production",
     "test": "jest",
     "lint": "eslint --fix --ignore-path .gitignore ."
