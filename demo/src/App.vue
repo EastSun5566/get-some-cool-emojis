@@ -1,31 +1,43 @@
 <template>
-  <main class="container">
-    <div class="jumbotron text-center">
-      <h1 class="display-3">
-        {{ emojis }}
-      </h1>
+  <main>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-3 text-center">
+          {{ emojis }}
+        </h1>
 
-      <hr class="my-4">
+        <hr class="my-4">
 
-      <div class="form-group">
-        <input
-          v-model="number"
-          min="0"
-          class="form-control form-control-lg"
-          type="number"
-          placeholder="✏️ Type some number"
-          autofocus
-        >
+        <div class="form-group mb-5">
+          <input
+            v-model="number"
+            min="0"
+            class="form-control form-control-lg"
+            type="number"
+            placeholder="✏️ Type some number..."
+            autofocus
+          >
+        </div>
+
+        <pre v-highlightjs="code"><code class="javascript" /></pre>
+
+        <small class="d-block text-center mt-3">
+          Made with ❤️ By
+          <a
+            href="https://github.com/EastSun5566"
+            class="badge badge-pill badge-primary"
+            target="_blank"
+          >
+            EastSun5566
+          </a>
+        </small>
       </div>
-
-      <div v-html="marked" />
     </div>
   </main>
 </template>
 
 <script>
 import getSomeCoolEmojis from 'get-some-cool-emojis';
-import marked from 'marked';
 
 export default {
   name: 'App',
@@ -37,17 +49,14 @@ export default {
   computed: {
     emojis() {
       const { number } = this;
-      return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJI 🔥';
+      return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
     },
-    marked() {
-      return marked(`
 
-      const getSomeCoolEmojis = require("get-some-cool-emojis");
-      // or import getSomeCoolEmojis from "get-some-cool-emojis";
+    code() {
+      const { number, emojis } = this;
+      return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
 
-      getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
-
-      `, { sanitize: true });
+getSomeCoolEmojis(${number}); // return ${number} emojis | ${emojis}`;
     },
   },
 };
@@ -55,6 +64,11 @@ export default {
 
 <style lang="scss">
 main {
+  background-color: #eee;
+
   padding-top: 5vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 </style>

@@ -1,4 +1,4 @@
-# Get Some Cool Emojis
+# Get Some Cool Emojis 🔥
 
 > 🏭 Just generate some random Emojis 🎉✨🔧🐛💩
 
@@ -17,9 +17,7 @@ yarn add get-some-cool-emojis
 ## 🚀 Useage
 
 ```js
-const getSomeCoolEmojis = require("get-some-cool-emojis");
-
-// or import getSomeCoolEmojis from "get-some-cool-emojis";
+const getSomeCoolEmojis = require("get-some-cool-emojis"); // or import getSomeCoolEmojis from "get-some-cool-emojis";
 
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
