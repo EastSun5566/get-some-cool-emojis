@@ -1,5 +1,7 @@
 <template>
   <main>
+    <GithubCorner />
+
     <div class="container">
       <div class="jumbotron">
         <h1 class="display-3 text-center">
@@ -39,8 +41,11 @@
 <script>
 import getSomeCoolEmojis from 'get-some-cool-emojis';
 
+import GithubCorner from './components/GithubCorner.vue';
+
 export default {
   name: 'App',
+  components: { GithubCorner },
   data() {
     return {
       number: 0,
@@ -54,9 +59,11 @@ export default {
 
     code() {
       const { number, emojis } = this;
+      const ReturnNumber = number < 0 ? 0 : (Math.floor(Number(number)) || 0);
+
       return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
 
-getSomeCoolEmojis(${number}); // return ${number} emojis | ${emojis}`;
+getSomeCoolEmojis(${number}); // return ${ReturnNumber} emojis | ${emojis}`;
     },
   },
 };
