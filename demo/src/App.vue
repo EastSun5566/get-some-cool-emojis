@@ -59,7 +59,7 @@ export default {
 
     code() {
       const { number, emojis } = this;
-      const ReturnNumber = number < 0 ? 0 : (Math.floor(Number(number)) || 0);
+      const ReturnNumber = number < 0 ? 0 : (Math.floor(number) || 0);
 
       return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
 
@@ -69,10 +69,9 @@ getSomeCoolEmojis(${number}); // return ${ReturnNumber} emojis | ${emojis}`;
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 main {
   background-color: #eee;
-
   padding-top: 5vh;
   min-height: 100vh;
   display: flex;
