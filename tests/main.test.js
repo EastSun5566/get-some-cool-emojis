@@ -2,14 +2,16 @@ const emojiRegex = require('emoji-regex')();
 
 const getSomeCoolEmoji = require('../src/index');
 
-describe('測試 getSomeCoolEmoji 函式', () => {
-  test('參數為數值', () => {
+describe('Test getSomeCoolEmoji function', () => {
+  test('Argument is number', () => {
     expect(getSomeCoolEmoji(0)).toBe('');
     expect(getSomeCoolEmoji(-3)).toBe('');
+    expect(getSomeCoolEmoji(-1.3)).toBe('');
     expect(getSomeCoolEmoji(5)).toMatch(emojiRegex);
+    expect(getSomeCoolEmoji(2.3)).toMatch(emojiRegex);
   });
 
-  test('參數為其他型態', () => {
+  test('Argument is not number', () => {
     expect(getSomeCoolEmoji('')).toBe('');
     expect(getSomeCoolEmoji('test123')).toBe('');
     expect(getSomeCoolEmoji(null)).toBe('');

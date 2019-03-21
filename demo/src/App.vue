@@ -12,7 +12,7 @@
 
         <div class="form-group mb-5">
           <input
-            v-model="number"
+            v-model.number="number"
             min="0"
             class="form-control form-control-lg"
             type="number"
