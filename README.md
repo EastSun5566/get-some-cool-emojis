@@ -23,6 +23,7 @@ getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ## 🔧 Develop
 
 ```sh
+# Install dependencies
 yarn
 
 cd src/main.js
