@@ -9,8 +9,7 @@
   "scripts": {
     "build": "webpack -p",
     "test": "jest",
-    "lint": "eslint --fix --ignore-path .gitignore .",
-    "deploy:demo": "cd demo && yarn deploy"
+    "lint": "eslint --fix --ignore-path .gitignore ."
   },
   "keywords": [
     "emoji"
