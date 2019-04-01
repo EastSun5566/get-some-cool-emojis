@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "yarn build && cd dist && now"
+    "deploy": "yarn build && cd dist && now && now ln get-some-cool-emojis"
   },
   "dependencies": {
     "add": "^2.0.6",

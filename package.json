@@ -7,9 +7,10 @@
     "dist/index.js"
   ],
   "scripts": {
-    "build": "npm run test && webpack --mode=production",
+    "build": "webpack -p",
     "test": "jest",
-    "lint": "eslint --fix --ignore-path .gitignore ."
+    "lint": "eslint --fix --ignore-path .gitignore .",
+    "deploy:demo": "cd demo && yarn deploy"
   },
   "keywords": [
     "emoji"
