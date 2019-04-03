@@ -10,7 +10,7 @@ npm i get-some-cool-emojis
 # or yarn add get-some-cool-emojis
 ```
 
-## 🚀 Useage
+## 🚀 Usage
 
 ```js
 const getSomeCoolEmojis = require("get-some-cool-emojis");
