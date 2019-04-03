@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/EastSun5566/get-some-cool-emojis",
   "dependencies": {
+    "core-js": "^3.0.0",
     "emojis-list": "^2.1.0"
   },
   "devDependencies": {
