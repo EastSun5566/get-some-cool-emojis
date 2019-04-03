@@ -12,7 +12,8 @@
     "lint": "eslint --fix --ignore-path .gitignore ."
   },
   "keywords": [
-    "emoji"
+    "emoji",
+    "random"
   ],
   "author": "汪東陽 EastSun5566",
   "license": "MIT",
