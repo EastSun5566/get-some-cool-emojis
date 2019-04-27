@@ -1,16 +1,19 @@
 const emojisList = require('emojis-list');
 
-const getRandomInt = () => Math.floor(Math.random() * (emojisList.length - 1));
+/**
+ * @return {number} Random integer
+ */
+const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1));
 
-module.exports = (num = 0) => {
-  const emojiNumber = Math.floor(Number(num === true ? 0 : num)) || 0;
-
-  const emojiString = Array
-    .from(
-      { length: emojiNumber },
-      () => emojisList[getRandomInt()],
-    )
-    .join('');
-
-  return emojiString;
-};
+/**
+ * @module get-some-cool-emojims
+ *
+ * @param {number} number - Number of emojis
+ * @returns {string} String of Emojis list
+ */
+module.exports = (number = 0) => Array
+  .from(
+    { length: Math.floor(Number(number === true ? 0 : number)) || 0 },
+    () => emojisList[getRandomInteger()],
+  )
+  .join('');

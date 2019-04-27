@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "webpack -p",
+    "build:dev": "webpack -d",
     "test": "jest",
     "lint": "eslint --fix --ignore-path .gitignore ."
   },
