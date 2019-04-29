@@ -1,15 +1,21 @@
+/**
+ * @license MIT
+ * @copyright (c) 2019
+ * @author 汪東陽 EastSun5566
+ */
+
 const emojisList = require('emojis-list');
 
 /**
- * @return {number} Random integer
+ * @return {number} The Random integer
  */
 const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1));
 
 /**
  * @module get-some-cool-emojims
  *
- * @param {number} number - Number of emojis
- * @returns {string} String of Emojis list
+ * @param {number} number - The number of emojis
+ * @returns {string} The string of Emojis list
  */
 module.exports = (number = 0) => Array
   .from(
