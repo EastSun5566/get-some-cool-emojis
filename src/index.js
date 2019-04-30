@@ -1,6 +1,6 @@
 /**
  * @license MIT
- * @copyright (c) 2019
+ * @copyright (c) 2018 - present
  * @author 汪東陽 EastSun5566
  */
 
