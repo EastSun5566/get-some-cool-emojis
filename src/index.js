@@ -7,12 +7,12 @@
 const emojisList = require('emojis-list');
 
 /**
- * @return {number} The Random integer
+ * @returns {number} The Random integer
  */
 const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1));
 
 /**
- * @module get-some-cool-emojims
+ * @package get-some-cool-emojims
  *
  * @param {number} number - The number of emojis
  * @returns {string} The string of Emojis list
