@@ -2,7 +2,7 @@
 
 > 🏭 Just generate some random Emojis 🎉✨🔧🐛💩
 
-[![Build Status](https://travis-ci.org/EastSun5566/get-some-cool-emojis.svg?branch=master)](https://travis-ci.org/EastSun5566/get-some-cool-emojis)
+[![Build Status](https://travis-ci.org/EastSun5566/get-some-cool-emojis.svg?branch=master)](https://travis-ci.org/EastSun5566/get-some-cool-emojis) [![npm](https://img.shields.io/npm/v/get-some-cool-emojis.svg)](https://www.npmjs.com/package/get-some-cool-emojis)
 
 ## ✨ Install
 
