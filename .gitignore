@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
 
@@ -41,6 +40,7 @@ build/Release
 node_modules/
 jspm_packages/
 dist/
+demo/
 
 # TypeScript v1 declaration files
 typings/
