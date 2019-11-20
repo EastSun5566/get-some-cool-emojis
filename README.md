@@ -22,24 +22,6 @@ const getSomeCoolEmojis = require("get-some-cool-emojis");
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
 
-## 🔧 Develop
-
-```sh
-# Install dependencies
-yarn
-
-cd src/main.js
-
-# Fix style
-yarn lint
-
-# Run test
-yarn test
-
-# Build for production
-yarn build
-```
-
 ## 💻 Demo
 
 <https://get-some-cool-emojis.now.sh/>
