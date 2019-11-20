@@ -4,17 +4,26 @@
  * @author 汪東陽 EastSun5566
  */
 
+/**
+ * Emojis List
+ *
+ * @type {string[]}
+ */
 const emojisList = require('emojis-list');
 
 /**
+ * Get Random Integer
+ *
+ * @function getRandomInteger
  * @returns {number} The Random integer
  */
 const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1));
 
 /**
- * @package get-some-cool-emojims
+ * @package get-some-cool-emojis
  *
- * @param {number} number - The number of emojis
+ * @function getSomeCoolEmojis
+ * @param {number} [number=0] - The number of emojis
  * @returns {string} The string of Emojis list
  */
 module.exports = (number = 0) => Array

@@ -10,7 +10,8 @@
     "build": "webpack -p",
     "build:dev": "webpack -d",
     "test": "jest",
-    "lint": "eslint --fix --ignore-path .gitignore ."
+    "lint": "eslint --fix --ignore-path .gitignore .",
+    "release": "npm version patch && git push --follow-tags"
   },
   "keywords": [
     "emoji",
@@ -24,19 +25,19 @@
   },
   "homepage": "https://get-some-cool-emojis.now.sh/",
   "dependencies": {
-    "core-js": "^3.0.0",
-    "emojis-list": "^2.1.0"
+    "core-js": "^3.4.1",
+    "emojis-list": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
     "babel-loader": "^8.0.4",
     "emoji-regex": "^8.0.0",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^24.5.0",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
