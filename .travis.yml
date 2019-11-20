@@ -10,6 +10,7 @@ before_deploy:
 
 deploy:
   provider: npm
+  email: michael19920327@gmail.com
   api_key: $NPM_TOKEN
   skip_cleanup: true
   on:
