@@ -24,4 +24,4 @@ getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 
 ## 💻 Demo
 
-<https://get-some-cool-emojis.now.sh/>
+<https://eastsun5566.github.io/get-some-cool-emojis/>

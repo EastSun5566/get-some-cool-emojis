@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://github.com/EastSun5566/get-some-cool-emojis"
+    href="https://github.com/EastSun5566/get-some-cool-emojis/"
     class="github-corner"
     aria-label="View source on GitHub"
     title="View source on GitHub"

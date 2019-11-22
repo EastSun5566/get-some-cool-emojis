@@ -22,9 +22,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EastSun5566/get-some-cool-emojis"
+    "url": "https://github.com/EastSun5566/get-some-cool-emojis/"
   },
-  "homepage": "https://get-some-cool-emojis.now.sh/",
+  "homepage": "https://eastsun5566.github.io/get-some-cool-emojis/",
   "dependencies": {
     "core-js": "^3.4.1",
     "emojis-list": "^3.0.0"

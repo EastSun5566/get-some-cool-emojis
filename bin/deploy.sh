@@ -19,7 +19,7 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy demo'
+git commit -m 'deploy get-some-cool-emojis demo'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:EastSun5566/get-some-cool-emojis.git master:gh-pages
