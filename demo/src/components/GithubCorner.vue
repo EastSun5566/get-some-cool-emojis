@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://github.com/EastSun5566/get-some-cool-emojis"
+    href="https://github.com/EastSun5566/get-some-cool-emojis/"
     class="github-corner"
     aria-label="View source on GitHub"
     title="View source on GitHub"
@@ -27,10 +27,11 @@
   </a>
 </template>
 
-<script>
-export default {
-  name: 'GithubCorner',
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class GithubCorner extends Vue {}
 </script>
 
 <style lang="scss" scoped>
