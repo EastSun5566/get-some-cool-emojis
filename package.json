@@ -11,7 +11,8 @@
     "build:dev": "webpack -d",
     "test": "jest",
     "lint": "eslint --fix --ignore-path .gitignore .",
-    "release": "sh ./bin/release.sh"
+    "release": "sh ./bin/release.sh",
+    "deploy": "sh ./bin/deploy.sh"
   },
   "keywords": [
     "emoji",

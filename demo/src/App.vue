@@ -23,50 +23,44 @@
 
         <pre v-highlightjs="code"><code class="javascript" /></pre>
 
-        <small class="d-block text-center mt-3">
-          Made with ❤️ By
-          <a
-            href="https://github.com/EastSun5566"
-            class="badge badge-pill badge-primary"
-            target="_blank"
-          >
-            EastSun5566
-          </a>
-        </small>
+        <Note />
       </div>
     </div>
   </main>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+// @ts-ignore
 import getSomeCoolEmojis from 'get-some-cool-emojis';
 
 import GithubCorner from './components/GithubCorner.vue';
+import Note from './components/Note.vue';
 
-export default {
-  name: 'App',
-  components: { GithubCorner },
-  data() {
-    return {
-      number: 0,
-    };
+@Component({
+  components: {
+    GithubCorner,
+    Note,
   },
-  computed: {
-    emojis() {
-      const { number } = this;
-      return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
-    },
+})
+export default class App extends Vue {
+  number = 0;
 
-    code() {
-      const { number, emojis } = this;
-      const ReturnNumber = number < 0 ? 0 : (Math.floor(number) || 0);
+  get emojis() {
+    const { number } = this;
+    return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
+  }
 
-      return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
+  get code() {
+    const { number, emojis } = this;
+    const ReturnNumber = number < 0 ? 0 : (Math.floor(number) || 0);
+
+    return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
 
 getSomeCoolEmojis(${number}); // return ${ReturnNumber} emojis | ${emojis}`;
-    },
-  },
-};
+  }
+}
 </script>
 
 <style lang="scss" scoped>
