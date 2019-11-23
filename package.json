@@ -15,6 +15,7 @@
     "deploy": "sh ./bin/deploy.sh"
   },
   "keywords": [
+    "cool",
     "emoji",
     "random"
   ],
@@ -34,9 +35,9 @@
     "@babel/preset-env": "^7.7.1",
     "babel-loader": "^8.0.4",
     "emoji-regex": "^8.0.0",
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.18.2",
     "jest": "^24.5.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
