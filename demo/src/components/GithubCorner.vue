@@ -27,13 +27,6 @@
   </a>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-@Component
-export default class GithubCorner extends Vue {}
-</script>
-
 <style lang="scss" scoped>
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;

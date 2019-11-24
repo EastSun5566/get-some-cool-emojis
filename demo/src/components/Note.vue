@@ -10,9 +10,3 @@
     </a>
   </small>
 </template>
-
-<script lang="ts">
-import { Vue } from 'vue-property-decorator';
-
-export default class Note extends Vue {}
-</script>
