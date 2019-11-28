@@ -45,7 +45,7 @@ import Note from './components/Note.vue';
   },
 })
 export default class App extends Vue {
-  number: number = 0;
+  private number: number = 0;
 
   get emojis(): string {
     const { number } = this;
