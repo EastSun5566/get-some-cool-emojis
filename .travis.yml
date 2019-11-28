@@ -18,8 +18,9 @@ jobs:
           tags: true
     - stage: Demo deploy
       script: yarn deploy
-      provider: pages
-      skip_cleanup: true
-      github_token: $GITHUB_TOKEN
-      on:
-        tags: true
+      deploy:
+        provider: pages
+        github_token: $GITHUB_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
