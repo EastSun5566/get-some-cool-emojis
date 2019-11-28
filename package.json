@@ -10,9 +10,9 @@
     "build": "webpack -p",
     "build:dev": "webpack -d",
     "test": "jest",
-    "lint": "eslint --fix --ignore-path .gitignore .",
-    "release": "sh ./bin/release.sh",
-    "deploy": "sh ./bin/deploy.sh"
+    "lint": "eslint --fix --ignore-path .gitignore src/",
+    "release": "sh bin/release.sh",
+    "deploy": "sh bin/deploy.sh"
   },
   "keywords": [
     "cool",
@@ -26,6 +26,11 @@
     "url": "https://github.com/EastSun5566/get-some-cool-emojis/"
   },
   "homepage": "https://eastsun5566.github.io/get-some-cool-emojis/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
   "dependencies": {
     "core-js": "^3.4.1",
     "emojis-list": "^3.0.0"
@@ -38,6 +43,7 @@
     "eslint": "^6.7.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.1.0",
     "jest": "^24.5.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"

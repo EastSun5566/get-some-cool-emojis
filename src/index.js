@@ -16,7 +16,7 @@ const emojisList = require('emojis-list');
  * Get Random Integer
  * @returns {number} The Random integer
  */
-const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1));
+const getRandomInt = () => Math.floor(Math.random() * (emojisList.length - 1));
 
 /**
  * @param {number} [number=0] - The number of emojis
@@ -25,6 +25,6 @@ const getRandomInteger = () => Math.floor(Math.random() * (emojisList.length - 1
 module.exports = (number = 0) => Array
   .from(
     { length: Math.floor(Number(number === true ? 0 : number)) || 0 },
-    () => emojisList[getRandomInteger()],
+    () => emojisList[getRandomInt()],
   )
   .join('');

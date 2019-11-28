@@ -5,13 +5,21 @@ node_js:
 
 cache: yarn
 
-before_deploy:
-  - yarn build
-
-deploy:
-  provider: npm
-  email: michael19920327@gmail.com
-  api_key: $NPM_TOKEN
-  skip_cleanup: true
-  on:
-    tags: true
+jobs:
+  include:
+    - stage: NPM publish
+      script: yarn build
+      deploy:
+        provider: npm
+        email: michael19920327@gmail.com
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
+    - stage: Demo deploy
+      script: yarn deploy
+      provider: pages
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      on:
+        tags: true
