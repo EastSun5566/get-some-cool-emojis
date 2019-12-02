@@ -11,7 +11,7 @@ jobs:
       script: yarn test
 
     - stage: NPM publish
-      script: yarn build
+      before_deploy: yarn build
       deploy:
         provider: npm
         email: michael19920327@gmail.com
@@ -21,7 +21,7 @@ jobs:
           tags: true
 
     - stage: Demo deploy
-      script: yarn deploy
+      before_deploy: yarn deploy
       deploy:
         provider: pages
         script: yarn deploy
