@@ -45,14 +45,14 @@ import Note from './components/Note.vue';
   },
 })
 export default class App extends Vue {
-  number = 0;
+  private number: number = 0;
 
-  get emojis() {
+  get emojis(): string {
     const { number } = this;
     return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
   }
 
-  get code() {
+  get code(): string {
     const { number, emojis } = this;
     const ReturnNumber = number < 0 ? 0 : (Math.floor(number) || 0);
 
