@@ -5,27 +5,25 @@ node_js:
 
 cache: yarn
 
-jobs:
-  include:
-    - stage: Test
-      script: yarn test
+before_deploy:
+  - if ! [ $BEFORE_DEPLOY_RUN ]; then
+    BEFORE_DEPLOY_RUN=true
+    yarn build
+    else
+    yarn deploy
+    fi
 
-    - stage: NPM publish
-      before_deploy: yarn build
-      deploy:
-        provider: npm
-        email: michael19920327@gmail.com
-        api_key: $NPM_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
+deploy:
+  - provider: npm
+    email: michael19920327@gmail.com
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
 
-    - stage: Demo deploy
-      before_deploy: yarn deploy
-      deploy:
-        provider: pages
-        script: yarn deploy
-        github_token: $GITHUB_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
+  - provider: pages
+    github_token: $GITHUB_TOKEN
+    skip_cleanup: true
+    local_dir: dist
+    on:
+      tags: true
