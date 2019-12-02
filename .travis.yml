@@ -5,26 +5,17 @@ node_js:
 
 cache: yarn
 
-# script: yarn test
-
-jobs:
-  include:
-    - stage: NPM publish
-      if: (tag =~ ^v) AND (branch = master)
-      script: yarn build
-      deploy:
-        provider: npm
-        email: michael19920327@gmail.com
-        api_key: $NPM_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
-    - stage: Demo deploy
-      if: (tag =~ ^v) AND (branch = master)
-      script: yarn deploy
-      deploy:
-        provider: pages
-        github_token: $GITHUB_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
+deploy:
+  - provider: npm
+    script: yarn build
+    email: michael19920327@gmail.com
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: pages
+    script: yarn deploy
+    github_token: $GITHUB_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
