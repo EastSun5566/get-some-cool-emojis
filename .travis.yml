@@ -5,9 +5,12 @@ node_js:
 
 cache: yarn
 
+# script: yarn test
+
 jobs:
   include:
     - stage: NPM publish
+      if: (tag =~ ^v) AND (branch = master)
       script: yarn build
       deploy:
         provider: npm
@@ -17,6 +20,7 @@ jobs:
         on:
           tags: true
     - stage: Demo deploy
+      if: (tag =~ ^v) AND (branch = master)
       script: yarn deploy
       deploy:
         provider: pages
