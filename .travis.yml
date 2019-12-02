@@ -21,7 +21,7 @@ jobs:
           tags: true
 
     - stage: Demo deploy
-      script: yarn release
+      script: yarn deploy
       deploy:
         provider: pages
         script: yarn deploy
