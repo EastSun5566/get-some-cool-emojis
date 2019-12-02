@@ -6,12 +6,13 @@ node_js:
 cache: yarn
 
 before_deploy:
-  - if ! [ $BEFORE_DEPLOY_RUN ]; then
-    BEFORE_DEPLOY_RUN=true
+  -
+  if ! [ $NPM_PUBLISH ]; then
+    export NPM_PUBLISH=true
     yarn build
-    else
+  else
     yarn deploy
-    fi
+  fi
 
 deploy:
   - provider: npm
