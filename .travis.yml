@@ -8,10 +8,10 @@ cache: yarn
 before_deploy:
   -
   if ! [ $NPM_PUBLISH ]; then
-    export NPM_PUBLISH=true
-    yarn build
+    export NPM_PUBLISH=true;
+    yarn build;
   else
-    yarn deploy
+    yarn deploy;
   fi
 
 deploy:
