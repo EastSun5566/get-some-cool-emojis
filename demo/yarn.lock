@@ -4104,10 +4104,10 @@ get-own-enumerable-property-symbols@^3.0.0:
   resolved "https://registry.npm.taobao.org/get-own-enumerable-property-symbols/download/get-own-enumerable-property-symbols-3.0.1.tgz#6f7764f88ea11e0b514bd9bd860a132259992ca4"
   integrity sha1-b3dk+I6hHgtRS9m9hgoTIlmZLKQ=
 
-get-some-cool-emojis@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/get-some-cool-emojis/-/get-some-cool-emojis-1.2.3.tgz#84a62a10fbd9f027fc61f35857c16adfc8ab106d"
-  integrity sha512-cCnCiUDSCUd93ZFq0izNU/3knWNCIs90lmg62TYyXYXIhIeIuEFcBce4M+XFUOwLJEF/0MDCBXguMGl8ylFroQ==
+get-some-cool-emojis@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/get-some-cool-emojis/-/get-some-cool-emojis-1.2.9.tgz#aef97b4ee83997ab275bd5a7f81926f67be709ca"
+  integrity sha512-oPAB7AH6A26HDY+ZtLkUAlLoEWSUZbJjMlOICkER7D96rplokyEY+djG3IQU8dWPudfGMmGm88wzy7XhPY/pTg==
   dependencies:
     core-js "^3.4.1"
     emojis-list "^3.0.0"
