@@ -4,28 +4,27 @@ node_js:
   - lts/*
 
 cache: yarn
+# before_deploy:
+#   -
+#   if ! [ $NPM_PUBLISH ];
+#   then
+#     NPM_PUBLISH=true;
+#     yarn build;
+#   else
+#     yarn deploy;
+#   fi
 
-before_deploy:
-  -
-  if ! [ $NPM_PUBLISH ];
-  then
-    NPM_PUBLISH=true;
-    yarn build;
-  else
-    yarn deploy;
-  fi
+# deploy:
+#   - provider: npm
+#     email: michael19920327@gmail.com
+#     api_key: $NPM_TOKEN
+#     skip_cleanup: true
+#     on:
+#       tags: true
 
-deploy:
-  - provider: npm
-    email: michael19920327@gmail.com
-    api_key: $NPM_TOKEN
-    skip_cleanup: true
-    on:
-      tags: true
-
-  - provider: pages
-    github_token: $GITHUB_TOKEN
-    skip_cleanup: true
-    local_dir: dist
-    on:
-      tags: true
+#   - provider: pages
+#     github_token: $GITHUB_TOKEN
+#     skip_cleanup: true
+#     local_dir: dist
+#     on:
+#       tags: true
