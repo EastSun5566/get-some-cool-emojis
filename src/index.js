@@ -8,17 +8,21 @@
 
 /**
  * Emojis List
+ *
  * @type {string[]}
  */
 const emojisList = require('emojis-list');
 
 /**
  * Get Random Integer
+ *
  * @returns {number} The Random integer
  */
 const getRandomInt = () => Math.floor(Math.random() * (emojisList.length - 1));
 
 /**
+ * Get Random emojis
+ *
  * @param {number} [number=0] - The number of emojis
  * @returns {string} The string of Emojis list
  */
