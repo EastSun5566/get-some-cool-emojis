@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const emojiRegex = require('emoji-regex')();
 
 const getSomeCoolEmoji = require('../src/index');
