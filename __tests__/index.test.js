@@ -1,10 +1,9 @@
-/* eslint-disable no-undef */
 const emojiRegex = require('emoji-regex')();
 
 const getSomeCoolEmoji = require('../src/index');
 
-describe('Test getSomeCoolEmoji function', () => {
-  test('Argument is number', () => {
+describe('getSomeCoolEmoji function', () => {
+  test('arg is number', () => {
     expect(getSomeCoolEmoji(0)).toBe('');
     expect(getSomeCoolEmoji(-3)).toBe('');
     expect(getSomeCoolEmoji(-1.3)).toBe('');
@@ -12,7 +11,7 @@ describe('Test getSomeCoolEmoji function', () => {
     expect(getSomeCoolEmoji(2.3)).toMatch(emojiRegex);
   });
 
-  test('Argument is not number', () => {
+  test('arg is not number', () => {
     expect(getSomeCoolEmoji('')).toBe('');
     expect(getSomeCoolEmoji('test')).toBe('');
     expect(getSomeCoolEmoji(null)).toBe('');

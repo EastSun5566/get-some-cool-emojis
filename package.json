@@ -15,8 +15,9 @@
     "deploy": "sh bin/deploy.sh"
   },
   "keywords": [
-    "cool",
     "emoji",
+    "emojis",
+    "cool",
     "random"
   ],
   "author": "汪東陽 EastSun5566",

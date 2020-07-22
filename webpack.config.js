@@ -3,9 +3,9 @@ const { resolve } = require('path');
 module.exports = {
   entry: ['core-js/features/array/from', './src/index.js'],
   output: {
-    filename: 'index.js',
     path: resolve(__dirname, 'dist'),
-    library: 'get-some-cool-emojis',
+    filename: 'index.js',
+    library: 'getSomeCoolEmojis',
     libraryTarget: 'umd',
     globalObject: "typeof self !== 'undefined' ? self : this",
   },
