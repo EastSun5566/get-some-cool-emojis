@@ -4,9 +4,7 @@
 
 > 🏭 Just generate some random Emojis 🎉✨🔧🐛💩
 
-## 💻 Demo
-
-<https://eastsun5566.github.io/get-some-cool-emojis/>
+🔗 <https://eastsun5566.github.io/get-some-cool-emojis/>
 
 ## ✨ Install
 
