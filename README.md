@@ -6,7 +6,7 @@
 
 🔗 <https://eastsun5566.github.io/get-some-cool-emojis/>
 
-## ✨ Install
+## ✨ Installation
 
 ```sh
 npm i get-some-cool-emojis
