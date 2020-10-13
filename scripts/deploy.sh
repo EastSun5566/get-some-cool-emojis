@@ -6,10 +6,10 @@ set -e
 cd demo
 
 # make sure pkg is latest version
-yarn add get-some-cool-emojis
+npm i get-some-cool-emojis
 
 # build
-yarn build
+npm run build
 
 # navigate into the build output directory
 cd dist
