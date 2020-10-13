@@ -11,7 +11,7 @@ before_deploy:
     NPM_PUBLISH=true;
     npm run build;
     else
-    cd demo; yarn add get-some-cool-emojis; npm run build
+    cd demo; npm i get-some-cool-emojis; npm run build
     fi
 
 deploy:
