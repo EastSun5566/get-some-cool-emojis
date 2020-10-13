@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# abort on errors
+set -e
+
 # check out & sync master
 git checkout master
 git pull
