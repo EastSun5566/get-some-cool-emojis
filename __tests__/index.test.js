@@ -2,26 +2,49 @@ const emojiRegex = require('emoji-regex')();
 
 const getSomeCoolEmoji = require('../src/index');
 
-describe('getSomeCoolEmoji function', () => {
-  test('arg is number', () => {
-    expect(getSomeCoolEmoji(0)).toBe('');
-    expect(getSomeCoolEmoji(-3)).toBe('');
-    expect(getSomeCoolEmoji(-1.3)).toBe('');
-    expect(getSomeCoolEmoji(5)).toMatch(emojiRegex);
-    expect(getSomeCoolEmoji(2.3)).toMatch(emojiRegex);
+describe('getSomeCoolEmoji', () => {
+  it('should be return a empty string if arg is not a number', () => {
+    const args = [
+      '',
+      'test',
+      null,
+      undefined,
+      true,
+      false,
+      NaN,
+      0,
+      {},
+      [],
+      () => {},
+    ];
+
+    args.forEach((arg) => {
+      expect(getSomeCoolEmoji(arg)).toBe('');
+    });
   });
 
-  test('arg is not number', () => {
-    expect(getSomeCoolEmoji('')).toBe('');
-    expect(getSomeCoolEmoji('test')).toBe('');
-    expect(getSomeCoolEmoji(null)).toBe('');
-    expect(getSomeCoolEmoji(undefined)).toBe('');
-    expect(getSomeCoolEmoji(true)).toBe('');
-    expect(getSomeCoolEmoji(false)).toBe('');
-    expect(getSomeCoolEmoji({})).toBe('');
-    expect(getSomeCoolEmoji({ test: 'test' })).toBe('');
-    expect(getSomeCoolEmoji([])).toBe('');
-    expect(getSomeCoolEmoji(['test'])).toBe('');
-    expect(getSomeCoolEmoji(() => {})).toBe('');
+  it('should be return a empty string if arg is zero or negative', () => {
+    const args = [
+      0,
+      -1,
+      -3.3,
+    ];
+
+    args.forEach((arg) => {
+      expect(getSomeCoolEmoji(arg)).toBe('');
+    });
+  });
+
+  test('should be return same length of string & arg value and match emoji regex if arg is positive', () => {
+    const args = [
+      5,
+      100,
+      2.3,
+    ];
+
+    args.forEach((arg) => {
+      expect(getSomeCoolEmoji(arg).length).toBe(Math.floor(arg));
+      expect(getSomeCoolEmoji(arg)).toMatch(emojiRegex);
+    });
   });
 });
