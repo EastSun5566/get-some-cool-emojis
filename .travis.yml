@@ -3,15 +3,15 @@ language: node_js
 node_js:
   - lts/*
 
-cache: yarn
+cache: npm
 
 before_deploy:
   - if ! [ $NPM_PUBLISH ];
     then
     NPM_PUBLISH=true;
-    yarn build;
+    npm run build;
     else
-    cd demo; yarn add get-some-cool-emojis; yarn build
+    cd demo; yarn add get-some-cool-emojis; npm run build
     fi
 
 deploy:
