@@ -1,11 +1,14 @@
 #!/bin/sh
 
+# abort on errors
+set -e
+
 # check out & sync master
 git checkout master
 git pull
 
 # Update & tag version
-npm version patch
+npx standard-version
 
 # push update
 git push --follow-tags

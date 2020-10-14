@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
 module.exports = {
-  entry: ['core-js/features/array/from', './src/index.js'],
+  entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'index.js',

@@ -35,10 +35,7 @@
       "pre-commit": "npm run lint"
     }
   },
-  "dependencies": {
-    "core-js": "^3.4.1",
-    "emojis-list": "^3.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
