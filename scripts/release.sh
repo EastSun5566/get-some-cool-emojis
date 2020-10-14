@@ -3,13 +3,14 @@
 # abort on errors
 set -e
 
-# check out & sync master
+echo "check out & sync master"
 git checkout master
 git pull
 
 # Update & tag version
 npx standard-version
 
-# push update
+echo "push tags"
 git push --follow-tags
+
 git checkout -
