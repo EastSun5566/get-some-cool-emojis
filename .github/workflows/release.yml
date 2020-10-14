@@ -44,7 +44,7 @@ jobs:
       - run: |
           cd demo
           npm ci
-          npm i get-some-cool-emojis
+          npm i get-some-cool-emojis@latest
           npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
