@@ -1,13 +1,18 @@
 const { resolve } = require('path');
 
+/**
+ * @type {import('webpack').WebpackOptionsNormalized}
+ */
 module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'getSomeCoolEmojis',
     libraryTarget: 'umd',
-    globalObject: "typeof self !== 'undefined' ? self : this",
+    library: 'getSomeCoolEmojis',
+    umdNamedDefine: true,
+    globalObject: 'this',
+    sourceMapFilename: 'index.js.map',
   },
   module: {
     rules: [

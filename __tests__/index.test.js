@@ -1,4 +1,4 @@
-const emojiRegex = require('emoji-regex')();
+const emojiRegex = require('emoji-regex/RGI_Emoji')();
 
 const getSomeCoolEmoji = require('../src/index');
 
@@ -19,6 +19,7 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
+      // @ts-ignore
       expect(getSomeCoolEmoji(arg)).toBe('');
     });
   });
@@ -35,7 +36,7 @@ describe('getSomeCoolEmoji', () => {
     });
   });
 
-  test.skip('should be return string and match emoji regex if arg is positive', () => {
+  it.skip('should be return string and match emoji regex if arg is positive', () => {
     const args = [
       12,
       100,
