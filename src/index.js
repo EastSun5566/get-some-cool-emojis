@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus */
+// @ts-check
 /**
  * @package get-some-cool-emojis
  *
@@ -7,7 +7,16 @@
  * @author 汪東陽 EastSun5566
  */
 
-const { parse2Int, getEmoji } = require('./utils');
+/**
+ * Raw emoji List
+ *
+ * @type {string[]}
+ * @description use `npm run gen:emojis` to gen latest emojis
+ */
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+const EMOJIS = require('./__EMOJIS__');
+const { parse2Int, getRandomInt } = require('./utils');
 
 /**
  * Get Random emojis
@@ -16,10 +25,12 @@ const { parse2Int, getEmoji } = require('./utils');
  * @returns {string} The string of Emojis list
  */
 module.exports = (number = 0) => {
-  let emojis = '';
+  const max = parse2Int(number);
 
-  for (let i = 0; i < parse2Int(number); i++) {
-    emojis += getEmoji();
+  let emojis = '';
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < max; i++) {
+    emojis += EMOJIS[getRandomInt(0, EMOJIS.length - 1)];
   }
 
   return emojis;

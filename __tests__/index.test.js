@@ -1,6 +1,6 @@
 const emojiRegex = require('emoji-regex/RGI_Emoji')();
 
-const getSomeCoolEmoji = require('../src/index');
+const getSomeCoolEmoji = require('../dist');
 
 describe('getSomeCoolEmoji', () => {
   it('should be return empty string if arg is not a number', () => {
@@ -36,7 +36,7 @@ describe('getSomeCoolEmoji', () => {
     });
   });
 
-  it.skip('should be return string and match emoji regex if arg is positive', () => {
+  it('should be return string and match emoji regex if arg is positive', () => {
     const args = [
       12,
       100,
@@ -44,7 +44,7 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
-      expect(getSomeCoolEmoji(arg)).toMatch(emojiRegex);
+      expect(emojiRegex.test(getSomeCoolEmoji(arg))).toBe(true);
     });
   });
 });
