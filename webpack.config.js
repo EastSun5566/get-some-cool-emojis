@@ -1,14 +1,21 @@
 const { resolve } = require('path');
 
+const isProd = process.env.NODE_ENV === 'production';
+
+/**
+ * @type {import('webpack').WebpackOptionsNormalized}
+ */
 module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'getSomeCoolEmojis',
     libraryTarget: 'umd',
-    globalObject: "typeof self !== 'undefined' ? self : this",
+    library: 'getSomeCoolEmojis',
+    umdNamedDefine: true,
+    globalObject: 'this',
   },
+  devtool: isProd ? 'source-map' : 'eval',
   module: {
     rules: [
       {
@@ -17,7 +24,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/env'],
           },
         },
       },

@@ -4,7 +4,8 @@
   "description": "🏭 Just generate some random Emojis 🎉✨🔧🐛💩",
   "main": "dist/index.js",
   "files": [
-    "dist/index.js"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "webpack -p",
@@ -37,16 +38,17 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "babel-loader": "^8.0.4",
-    "emoji-regex": "^8.0.0",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@types/jest": "^26.0.20",
+    "babel-loader": "^8.2.2",
+    "emoji-regex": "^9.2.0",
     "eslint": "^6.7.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.1.0",
     "jest": "^24.5.0",
-    "webpack": "^4.41.2",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.10"
   }
 }
