@@ -1,7 +1,5 @@
 const { resolve } = require('path');
 
-const isProd = process.env.NODE_ENV === 'production';
-
 /**
  * @type {import('webpack').WebpackOptionsNormalized}
  */
@@ -15,7 +13,7 @@ module.exports = {
     umdNamedDefine: true,
     globalObject: 'this',
   },
-  devtool: isProd ? 'source-map' : 'eval',
+  devtool: 'source-map',
   module: {
     rules: [
       {

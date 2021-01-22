@@ -8,10 +8,10 @@
     "src"
   ],
   "scripts": {
-    "build": "webpack -p",
-    "build:dev": "webpack -d",
-    "test": "jest",
-    "lint": "eslint --fix --ignore-path .gitignore src/",
+    "gen:emojis": "node scripts/gen-emojis",
+    "build": "npm run gen:emojis && webpack -p",
+    "test": "npm run build && jest",
+    "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh",
     "deploy:demo": "sh scripts/deploy.sh"
   },
@@ -41,6 +41,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@types/jest": "^26.0.20",
+    "@unicode/unicode-13.0.0": "^1.0.2",
     "babel-loader": "^8.2.2",
     "emoji-regex": "^9.2.0",
     "eslint": "^6.7.0",
