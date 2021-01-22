@@ -44,7 +44,7 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
-      expect(getSomeCoolEmoji(arg)).toMatch(emojiRegex);
+      expect(emojiRegex.test(getSomeCoolEmoji(arg))).toBeTruthy();
     });
   });
 });
