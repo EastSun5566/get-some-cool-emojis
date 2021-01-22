@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus */
+// @ts-check
 /**
  * @package get-some-cool-emojis
  *
@@ -8,9 +8,14 @@
  */
 
 /**
+ * Raw emoji List
+ *
  * @type {string[]}
+ * @description use `npm run gen:emojis` to gen latest emojis
  */
-const EMOJIS = require('./EMOJIS');
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+const EMOJIS = require('./__EMOJIS__');
 const { parse2Int, getRandomInt } = require('./utils');
 
 /**
@@ -23,6 +28,7 @@ module.exports = (number = 0) => {
   const max = parse2Int(number);
 
   let emojis = '';
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < max; i++) {
     emojis += EMOJIS[getRandomInt(0, EMOJIS.length - 1)];
   }
