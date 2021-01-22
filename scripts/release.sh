@@ -7,10 +7,10 @@ echo "check out & sync master"
 git checkout master
 git pull
 
-# Update & tag version
+echo "bump version & tag"
 npx standard-version
 
-echo "push tags"
+echo "push tag"
 git push --follow-tags
 
 git checkout -
