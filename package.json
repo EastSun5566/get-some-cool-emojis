@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "gen:emojis": "node scripts/gen-emojis",
-    "build": "npm run gen:emojis && webpack -p",
+    "build": "npm run gen:emojis && webpack -p && git checkout -- .",
     "test": "npm run build && jest",
     "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh",
