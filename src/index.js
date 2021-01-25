@@ -10,8 +10,8 @@
 /**
  * Raw emoji List
  *
+ * @description use `npm run gen:emojis` to generate latest emojis
  * @type {string[]}
- * @description use `npm run gen:emojis` to gen latest emojis
  */
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
