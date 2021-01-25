@@ -4,7 +4,6 @@ const { createWriteStream } = require('fs');
 const { join } = require('path');
 
 const { devDependencies } = require('../package.json');
-// const { entry } = require('../webpack.config');
 
 /**
  * @see {@link https://github.com/node-unicode/node-unicode-data}
@@ -15,7 +14,7 @@ const emojisDataPkg = Object.keys(devDependencies).find((name) => name.startsWit
  */
 // eslint-disable-next-line import/no-dynamic-require
 const emojis = require(`${emojisDataPkg}/Sequence_Property/RGI_Emoji`);
-// @ts-ignore
+
 const targetFile = join(__dirname, '..', 'src', '__EMOJIS__.js');
 
 Readable
