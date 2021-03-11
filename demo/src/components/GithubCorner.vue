@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://github.com/EastSun5566/get-some-cool-emojis/"
+    :href="`https://github.com/EastSun5566/${repo}/`"
     class="github-corner"
     aria-label="View source on GitHub"
     title="View source on GitHub"
@@ -28,13 +28,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { defineComponent } from 'vue';
 
-@Component
-export default class GithubCorner extends Vue {}
+export default defineComponent({
+  props: {
+    repo: {
+      type: String,
+      required: true,
+    },
+  },
+});
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
