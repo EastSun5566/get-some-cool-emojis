@@ -29,9 +29,9 @@ const getSomeCoolEmojis = require("get-some-cool-emojis");
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
 
-## Updating emoji data source
+## Updating emoji data
 
-emoji data source is from [Unicode data](https://github.com/node-unicode/node-unicode-data).
+emoji data is from [Unicode data](https://github.com/node-unicode/node-unicode-data).
 
 ```sh
 npm rm @unicode/unicode-x.x.x
