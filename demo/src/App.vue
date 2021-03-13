@@ -21,7 +21,7 @@
           >
         </div>
 
-        <pre><code class="javascript">{{ code }}</code></pre>
+        <div ref="code" />
       </div>
 
       <Note />
@@ -30,8 +30,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import {
+  defineComponent, ref, computed, watch,
+} from 'vue';
 import getSomeCoolEmojis from 'get-some-cool-emojis';
+import { getHighlighter } from 'shiki';
+import githubDark from 'shiki/themes/github-dark';
+import javascript from 'shiki/languages/javascript.tmLanguage';
 
 import { GithubCorner, Note } from './components';
 
@@ -43,16 +48,20 @@ export default defineComponent({
   },
   setup() {
     const number = ref(0);
+    const code = ref<HTMLElement | null>(null);
+
     const emojis = computed<string>(() => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥');
-    const code = computed<string>(() => {
-      const { value: numberValue } = number;
+
+    watch(number, async (numberValue) => {
       const ReturnNumber = numberValue < 0 ? 0 : (Math.floor(numberValue) || 0);
 
-      return `
-      import getSomeCoolEmojis from 'get-some-cool-emojis';
+      const highlighter = await getHighlighter({ theme: githubDark, langs: [javascript] });
+      const html = highlighter.codeToHtml(`
+        import getSomeCoolEmojis from 'get-some-cool-emojis';
+        getSomeCoolEmojis(${numberValue}); // return ${ReturnNumber} emojis | ${emojis.value}
+      `, 'js');
 
-      getSomeCoolEmojis(${numberValue}); // return ${ReturnNumber} emojis | ${emojis.value}
-      `;
+      code.value!.innerHTML = html;
     });
 
     return { number, emojis, code };
