@@ -34,6 +34,10 @@ getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 emoji data is from [Unicode data](https://github.com/node-unicode/node-unicode-data).
 
 ```sh
+# update deps
 npm rm @unicode/unicode-x.x.x
 npm i @unicode/unicode-x.x.x -D
+
+# build emojis
+npm run build
 ```
