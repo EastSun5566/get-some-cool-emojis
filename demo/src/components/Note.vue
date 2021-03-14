@@ -10,3 +10,11 @@
     </a>
   </small>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export const Note = defineComponent({});
+
+export default Note;
+</script>

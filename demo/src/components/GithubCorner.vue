@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-export default defineComponent({
+export const GithubCorner = defineComponent({
   props: {
     repo: {
       type: String,
@@ -38,6 +38,8 @@ export default defineComponent({
     },
   },
 });
+
+export default GithubCorner;
 </script>
 
 <style scoped>

@@ -30,17 +30,11 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  computed,
-  watch,
-  onMounted,
-} from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import getSomeCoolEmojis from 'get-some-cool-emojis';
 
 import { GithubCorner, Note } from './components';
-import { createCode } from './utils';
+import { useCode } from './uses';
 
 export default defineComponent({
   name: 'App',
@@ -50,17 +44,9 @@ export default defineComponent({
   },
   setup() {
     const number = ref(0);
-    const code = ref<HTMLElement | null>(null);
-
     const emojis = computed<string>(() => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥');
 
-    const updateCode = async () => {
-      code.value!.innerHTML = await createCode({ number: number.value, emojis: emojis.value });
-    };
-
-    onMounted(updateCode);
-
-    watch(number, updateCode);
+    const { code } = useCode({ number, emojis });
 
     return { number, emojis, code };
   },
