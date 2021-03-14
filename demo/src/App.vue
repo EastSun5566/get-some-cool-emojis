@@ -31,14 +31,16 @@
 
 <script lang="ts">
 import {
-  defineComponent, ref, computed, watch,
+  defineComponent,
+  ref,
+  computed,
+  watch,
+  onMounted,
 } from 'vue';
 import getSomeCoolEmojis from 'get-some-cool-emojis';
-import { getHighlighter } from 'shiki';
-import githubDark from 'shiki/themes/github-dark';
-import javascript from 'shiki/languages/javascript.tmLanguage';
 
 import { GithubCorner, Note } from './components';
+import { createCode } from './utils';
 
 export default defineComponent({
   name: 'App',
@@ -52,17 +54,13 @@ export default defineComponent({
 
     const emojis = computed<string>(() => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥');
 
-    watch(number, async (numberValue) => {
-      const ReturnNumber = numberValue < 0 ? 0 : (Math.floor(numberValue) || 0);
+    const updateCode = async () => {
+      code.value!.innerHTML = await createCode({ number: number.value, emojis: emojis.value });
+    };
 
-      const highlighter = await getHighlighter({ theme: githubDark, langs: [javascript] });
-      const html = highlighter.codeToHtml(`
-        import getSomeCoolEmojis from 'get-some-cool-emojis';
-        getSomeCoolEmojis(${numberValue}); // return ${ReturnNumber} emojis | ${emojis.value}
-      `, 'js');
+    onMounted(updateCode);
 
-      code.value!.innerHTML = html;
-    });
+    watch(number, updateCode);
 
     return { number, emojis, code };
   },
