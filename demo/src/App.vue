@@ -1,6 +1,6 @@
 <template>
   <main>
-    <GithubCorner />
+    <GithubCorner repo="get-some-cool-emojis" />
 
     <div class="container">
       <div class="jumbotron">
@@ -21,49 +21,39 @@
           >
         </div>
 
-        <pre v-highlightjs="code"><code class="javascript" /></pre>
-
-        <Note />
+        <div ref="code" />
       </div>
+
+      <Note />
     </div>
   </main>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-// @ts-ignore
+import { defineComponent, ref, computed } from 'vue';
 import getSomeCoolEmojis from 'get-some-cool-emojis';
 
-import GithubCorner from './components/GithubCorner.vue';
-import Note from './components/Note.vue';
+import { GithubCorner, Note } from './components';
+import { useCode } from './uses';
 
-@Component({
+export default defineComponent({
+  name: 'App',
   components: {
     GithubCorner,
     Note,
   },
-})
-export default class App extends Vue {
-  private number: number = 0;
+  setup() {
+    const number = ref(0);
+    const emojis = computed<string>(() => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥');
 
-  get emojis(): string {
-    const { number } = this;
-    return getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
-  }
+    const { code } = useCode({ number, emojis });
 
-  get code(): string {
-    const { number, emojis } = this;
-    const ReturnNumber = number < 0 ? 0 : (Math.floor(number) || 0);
-
-    return `const getSomeCoolEmojis = require('get-some-cool-emojis'); // or import getSomeCoolEmojis from 'get-some-cool-emojis';
-
-getSomeCoolEmojis(${number}); // return ${ReturnNumber} emojis | ${emojis}`;
-  }
-}
+    return { number, emojis, code };
+  },
+});
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 main {
   background-color: #eee;
   padding-top: 5vh;
