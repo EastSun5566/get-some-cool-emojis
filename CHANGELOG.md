@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.0.0...v3.1.0) (2021-03-20)
+
+
+### Features
+
+* add syntax highlighter ([4de8230](https://github.com/EastSun5566/get-some-cool-emojis/commit/4de8230da53d729048581c06dad5e6f81a2ed12e))
+
+
+### Bug Fixes
+
+* highlight code ([74e335e](https://github.com/EastSun5566/get-some-cool-emojis/commit/74e335e43f815fa376ef5850b68cac182a7fe456))
+
 ## [3.0.0](https://github.com/EastSun5566/get-some-cool-emojis/compare/v2.0.3...v3.0.0) (2021-01-22)
 
 
