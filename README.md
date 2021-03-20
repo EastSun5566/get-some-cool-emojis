@@ -24,7 +24,7 @@ or
 ## 🚀 Usage
 
 ```js
-const getSomeCoolEmojis = require("get-some-cool-emojis");
+import getSomeCoolEmojis from "get-some-cool-emojis";
 
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
@@ -38,6 +38,6 @@ emoji data is from [Unicode data](https://github.com/node-unicode/node-unicode-d
 npm rm @unicode/unicode-x.x.x
 npm i @unicode/unicode-x.x.x -D
 
-# build emojis
+# build emojis string
 npm run build
 ```
