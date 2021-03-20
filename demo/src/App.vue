@@ -31,7 +31,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
-// @ts-ignore
 import getSomeCoolEmojis from 'get-some-cool-emojis';
 
 import { GithubCorner, Note } from './components';
