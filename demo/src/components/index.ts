@@ -1,2 +1,2 @@
-export * from './GithubCorner.vue';
-export * from './Note.vue';
+export { GithubCorner } from './GithubCorner.vue';
+export { Note } from './Note.vue';
