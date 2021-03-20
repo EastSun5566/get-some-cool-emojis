@@ -3,13 +3,14 @@
   "version": "3.0.0",
   "description": "🏭 Just generate some random Emojis 🎉✨🔧🐛💩",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
     "gen:emojis": "node scripts/gen-emojis",
-    "build": "npm run gen:emojis && webpack -p && rm src/__EMOJIS__.js",
+    "build": "npm run gen:emojis && webpack -p && cp src/index.d.ts dist && rm src/__EMOJIS__.js",
     "test": "npm run build && jest",
     "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh",
