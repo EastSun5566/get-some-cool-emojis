@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# abort on errors
 set -e
 
 echo "check out & sync master"
@@ -12,5 +11,8 @@ npx standard-version
 
 echo "push tag"
 git push --follow-tags
+
+# let ci publish
+# npm publish
 
 git checkout -
