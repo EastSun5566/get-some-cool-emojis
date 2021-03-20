@@ -19,7 +19,6 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
-      // @ts-ignore
       expect(getSomeCoolEmoji(arg)).toBe('');
     });
   });
