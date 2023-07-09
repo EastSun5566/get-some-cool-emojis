@@ -14,7 +14,8 @@
     "test": "npm run build && jest",
     "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh",
-    "deploy:demo": "sh scripts/deploy.sh"
+    "deploy:demo": "sh scripts/deploy.sh",
+    "dev:demo": "npm -C demo run dev"
   },
   "keywords": [
     "emoji",

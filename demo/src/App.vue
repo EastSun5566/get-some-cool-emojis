@@ -32,6 +32,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import getSomeCoolEmojis from 'get-some-cool-emojis';
+import throttle from 'lodash.throttle';
 
 import { GithubCorner, Note } from './components';
 import { useCode } from './uses';
@@ -44,7 +45,14 @@ export default defineComponent({
   },
   setup() {
     const number = ref(0);
-    const emojis = computed<string>(() => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥');
+    const emojis = computed<string>(
+      {
+        get: () => getSomeCoolEmojis(number.value) || 'GET SOME COOL EMOJIS 🔥',
+        set: throttle((value: string) => {
+          number.value = value.length;
+        }, 500),
+      },
+    );
 
     const { code } = useCode({ number, emojis });
 
