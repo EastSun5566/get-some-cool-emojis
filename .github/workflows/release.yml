@@ -43,7 +43,7 @@ jobs:
           node-version: 16.x
       - run: |
           cd demo
-          npm ci
+          npm i
           npm i get-some-cool-emojis@latest
           npm run build
       - uses: peaceiris/actions-gh-pages@v3
