@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.1.2...v3.2.0) (2023-07-09)
+
+
+### Features
+
+* **demo:** add throttle to computed value ([f0f8555](https://github.com/EastSun5566/get-some-cool-emojis/commit/f0f8555b64807eb4563f0c01c04985cc0809b758))
+* update emoji data ([2092db2](https://github.com/EastSun5566/get-some-cool-emojis/commit/2092db20cd4cb31e430056356cd01eb56d9e1e49))
+
+
+### Bug Fixes
+
+* badge url ([2ccf163](https://github.com/EastSun5566/get-some-cool-emojis/commit/2ccf16323594a0b989a4529d87ef8227bce2e35f))
+
 ### [3.1.2](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.1.1...v3.1.2) (2021-03-20)
 
 ### [3.1.1](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.1.0...v3.1.1) (2021-03-20)
