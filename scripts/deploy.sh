@@ -9,7 +9,7 @@ cd demo
 npm i get-some-cool-emojis@latest
 
 # build
-npm run build
+rm -rf dist && npm run build
 
 # navigate into the build output directory
 cd dist
