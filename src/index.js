@@ -4,7 +4,7 @@
  *
  * @license MIT
  * @copyright (c) 2018 - present
- * @author 汪東陽 EastSun5566
+ * @author Michael Wang
  */
 
 /**
