@@ -1,0 +1,5 @@
+{
+  "name": "@eastsun5566/get-some-cool-emojis",
+  "version": "3.2.3",
+  "exports": "./src/index.js"
+}
