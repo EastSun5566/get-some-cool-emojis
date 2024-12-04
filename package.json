@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "gen:emojis": "node scripts/gen-emojis",
-    "build": "npm run gen:emojis && webpack -p && cp src/index.d.ts dist && rm src/__EMOJIS__.js",
+    "build": "npm run gen:emojis && webpack --mode production && cp src/index.d.ts dist && rm src/__EMOJIS__.js",
     "test": "npm run build && jest",
     "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh",
@@ -51,6 +51,6 @@
     "husky": "^3.1.0",
     "jest": "^29.3.1",
     "webpack": "^5.75.0",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^5.1.4"
   }
 }
