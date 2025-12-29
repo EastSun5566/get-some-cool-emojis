@@ -65,7 +65,7 @@ jobs:
           echo "Latest package: $LATEST_PKG"
 
           # Extract latest version number
-          LATEST_VERSION=$(echo $LATEST_PKG | sed 's/@unicode\/unicode-//')
+          LATEST_VERSION=$(echo "$LATEST_PKG" | sed 's/@unicode\/unicode-//')
           echo "Latest version: $LATEST_VERSION"
 
           # Set outputs
