@@ -70,7 +70,7 @@ jobs:
           fi
 
           if [ -z "$LATEST_PKG" ]; then
-            echo "Error: Could not find any unicode package. This may indicate a network issue or that npm search is unavailable. Please check npm registry status or try running this workflow again later."
+            echo "Error: Could not find any Unicode package. This may indicate a network issue or that npm search is unavailable. Please check npm registry status or try running this workflow again later."
             exit 1
           fi
 
