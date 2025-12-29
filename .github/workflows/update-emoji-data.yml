@@ -46,16 +46,26 @@ jobs:
             sort -V | \
             tail -1)
 
-          # Fallback: if search didn't work, try known versions
+          # Fallback: if search didn't work, probe versions relative to current
           if [ -z "$LATEST_PKG" ]; then
-            echo "npm search failed, trying known versions..."
-            # NOTE: This is a hardcoded fallback list of known Unicode versions (15.0.0–20.0.0).
-            # When updating to newer Unicode releases, extend or refresh this list accordingly.
-            for v in 20.0.0 19.0.0 18.0.0 17.0.0 16.0.0 15.1.0 15.0.0; do
-              if npm view "@unicode/unicode-$v" name >/dev/null 2>&1; then
-                LATEST_PKG="@unicode/unicode-$v"
-                break
-              fi
+            echo "npm search failed, probing versions based on current version..."
+            # NOTE: This is a fallback that probes Unicode versions starting from the
+            # current major version and moving upwards. When new major Unicode
+            # releases appear, maintainers can increase MAX_MAJOR_OFFSET or adjust
+            # the probed minor/patch versions if needed.
+            CURRENT_MAJOR="${CURRENT_VERSION%%.*}"
+            MAX_MAJOR_OFFSET=10
+            for ((offset = 0; offset <= MAX_MAJOR_OFFSET; offset++)); do
+              CAND_MAJOR=$((CURRENT_MAJOR + offset))
+              for CAND_VERSION in \
+                "$CAND_MAJOR.1.0" \
+                "$CAND_MAJOR.0.0"
+              do
+                if npm view "@unicode/unicode-$CAND_VERSION" name >/dev/null 2>&1; then
+                  LATEST_PKG="@unicode/unicode-$CAND_VERSION"
+                  break 2
+                fi
+              done
             done
           fi
 
