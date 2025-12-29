@@ -96,13 +96,13 @@ jobs:
             echo "Already up to date"
           fi
 
-      - name: Update unicode package
+      - name: Update Unicode package
         if: steps.check_unicode.outputs.needs_update == 'true'
         run: |
-          # Remove old unicode package
+          # Remove old Unicode package
           npm rm ${{ steps.check_unicode.outputs.current_pkg }}
 
-          # Install new unicode package
+          # Install new Unicode package
           npm i ${{ steps.check_unicode.outputs.latest_pkg }} --save-dev
 
       - name: Build emoji data
