@@ -4,7 +4,7 @@ on:
   schedule:
     # Run weekly on Monday at 00:00 UTC
     - cron: '0 0 * * 1'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:  # Allow manual trigger for testing or immediate updates
 
 jobs:
   update-emoji-data:
