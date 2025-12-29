@@ -9,10 +9,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
+          cache: 'npm'
       - run: |
           npm ci
           npm test
@@ -21,10 +22,11 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
+          cache: 'npm'
           registry-url: https://registry.npmjs.org/
       - run: |
           npm ci
@@ -37,16 +39,17 @@ jobs:
     needs: publish-npm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
+          cache: 'npm'
       - run: |
           cd demo
           npm i
           npm i get-some-cool-emojis@latest
           npm run build
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: demo/dist
