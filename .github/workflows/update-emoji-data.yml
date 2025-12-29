@@ -29,7 +29,7 @@ jobs:
           # Get current unicode package from package.json
           CURRENT_PKG=$(node -pe "Object.keys(require('./package.json').devDependencies || {}).find(name => name.startsWith('@unicode/unicode-'))")
           if [ -z "$CURRENT_PKG" ] || [ "$CURRENT_PKG" = "undefined" ]; then
-            echo "Error: No unicode package found in devDependencies"
+            echo "Error: No unicode package found in devDependencies. Please check if the unicode package name has changed or verify the devDependencies in package.json."
             exit 1
           fi
           echo "Current package: $CURRENT_PKG"
