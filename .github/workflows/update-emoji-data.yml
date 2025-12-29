@@ -105,7 +105,7 @@ jobs:
           commit-message: "chore: update emoji data to unicode ${{ steps.check_unicode.outputs.latest_version }}"
           title: "chore: update emoji data to unicode ${{ steps.check_unicode.outputs.latest_version }}"
           body: |
-            This PR updates the emoji data to the latest unicode version.
+            This PR updates the emoji data to the latest Unicode version.
 
             - **Current version**: ${{ steps.check_unicode.outputs.current_version }}
             - **New version**: ${{ steps.check_unicode.outputs.latest_version }}
