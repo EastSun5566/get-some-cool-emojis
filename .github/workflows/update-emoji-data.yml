@@ -49,6 +49,8 @@ jobs:
           # Fallback: if search didn't work, try known versions
           if [ -z "$LATEST_PKG" ]; then
             echo "npm search failed, trying known versions..."
+            # NOTE: This is a hardcoded fallback list of known Unicode versions (15.0.0–20.0.0).
+            # When updating to newer Unicode releases, extend or refresh this list accordingly.
             for v in 20.0.0 19.0.0 18.0.0 17.0.0 16.0.0 15.1.0 15.0.0; do
               if npm view "@unicode/unicode-$v" name >/dev/null 2>&1; then
                 LATEST_PKG="@unicode/unicode-$v"
