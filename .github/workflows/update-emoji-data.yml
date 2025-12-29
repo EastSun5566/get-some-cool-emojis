@@ -91,7 +91,7 @@ jobs:
           npm rm ${{ steps.check_unicode.outputs.current_pkg }}
 
           # Install new unicode package
-          npm i ${{ steps.check_unicode.outputs.latest_pkg }} -D
+          npm i ${{ steps.check_unicode.outputs.latest_pkg }} --save-dev
 
       - name: Build emoji data
         if: steps.check_unicode.outputs.needs_update == 'true'
