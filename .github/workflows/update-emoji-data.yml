@@ -24,6 +24,10 @@ jobs:
         run: |
           # Get current unicode package from package.json
           CURRENT_PKG=$(node -pe "Object.keys(require('./package.json').devDependencies).find(name => name.startsWith('@unicode/unicode-'))")
+          if [ -z "$CURRENT_PKG" ] || [ "$CURRENT_PKG" = "undefined" ]; then
+            echo "Error: No unicode package found in devDependencies"
+            exit 1
+          fi
           echo "Current package: $CURRENT_PKG"
 
           # Extract version number (e.g., 15.0.0 from @unicode/unicode-15.0.0)
@@ -34,7 +38,7 @@ jobs:
           # Try multiple methods to find the latest package
           LATEST_PKG=$(npm search @unicode/unicode --json 2>/dev/null | \
             jq -r '.[].name' | \
-            grep '^@unicode/unicode-[0-9]' | \
+            grep '^@unicode/unicode-[0-9][0-9.]*$' | \
             sort -V | \
             tail -1)
 
@@ -47,6 +51,11 @@ jobs:
                 break
               fi
             done
+          fi
+
+          if [ -z "$LATEST_PKG" ]; then
+            echo "Error: Could not find any unicode package"
+            exit 1
           fi
 
           echo "Latest package: $LATEST_PKG"
