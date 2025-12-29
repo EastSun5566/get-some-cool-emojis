@@ -104,8 +104,8 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: update emoji data to unicode ${{ steps.check_unicode.outputs.latest_version }}"
-          title: "chore: update emoji data to unicode ${{ steps.check_unicode.outputs.latest_version }}"
+          commit-message: "chore: update emoji data to Unicode ${{ steps.check_unicode.outputs.latest_version }}"
+          title: "chore: update emoji data to Unicode ${{ steps.check_unicode.outputs.latest_version }}"
           body: |
             This PR updates the emoji data to the latest Unicode version.
 
