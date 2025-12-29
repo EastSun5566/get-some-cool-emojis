@@ -35,7 +35,7 @@ jobs:
           echo "Current package: $CURRENT_PKG"
 
           # Extract version number (e.g., 15.0.0 from @unicode/unicode-15.0.0)
-          CURRENT_VERSION=$(echo $CURRENT_PKG | sed 's/@unicode\/unicode-//')
+          CURRENT_VERSION=$(echo "$CURRENT_PKG" | sed 's/@unicode\/unicode-//')
           echo "Current version: $CURRENT_VERSION"
 
           # Find the latest unicode package
