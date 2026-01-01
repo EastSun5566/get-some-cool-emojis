@@ -23,13 +23,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check for latest unicode version
+      - name: Check for latest Unicode version
         id: check_unicode
         run: |
-          # Get current unicode package from package.json
+          # Get current Unicode package from package.json
           CURRENT_PKG=$(node -pe "Object.keys(require('./package.json').devDependencies || {}).find(name => name.startsWith('@unicode/unicode-'))")
           if [ -z "$CURRENT_PKG" ] || [ "$CURRENT_PKG" = "undefined" ]; then
-            echo "Error: No unicode package found in devDependencies. Please check if the unicode package name has changed or verify the devDependencies in package.json."
+            echo "Error: No Unicode package found in devDependencies. Please check if the Unicode package name has changed or verify the devDependencies in package.json."
             exit 1
           fi
           echo "Current package: $CURRENT_PKG"
@@ -38,7 +38,7 @@ jobs:
           CURRENT_VERSION=$(echo "$CURRENT_PKG" | sed 's/@unicode\/unicode-//')
           echo "Current version: $CURRENT_VERSION"
 
-          # Find the latest unicode package
+          # Find the latest Unicode package
           # Try multiple methods to find the latest package
           LATEST_PKG=$(npm search @unicode/unicode --json 2>/dev/null | \
             jq -r '.[].name' | \
