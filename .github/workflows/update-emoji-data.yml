@@ -38,7 +38,6 @@ jobs:
           CURRENT_VERSION=$(echo "$CURRENT_PKG" | sed 's/@unicode\/unicode-//')
           echo "Current version: $CURRENT_VERSION"
 
-          # Find the latest Unicode package
           # Find the latest Unicode package using npm search, with fallback to version probing
           LATEST_PKG=$(npm search @unicode/unicode --json 2>/dev/null | \
             jq -r '.[].name' | \
@@ -55,6 +54,7 @@ jobs:
             # the probed minor/patch versions if needed.
             CURRENT_MAJOR="${CURRENT_VERSION%%.*}"
             MAX_MAJOR_OFFSET=10
+            FOUND_VERSIONS=()
             for ((offset = 0; offset <= MAX_MAJOR_OFFSET; offset++)); do
               CAND_MAJOR=$((CURRENT_MAJOR + offset))
               for CAND_VERSION in \
@@ -62,11 +62,16 @@ jobs:
                 "$CAND_MAJOR.0.0"
               do
                 if npm view "@unicode/unicode-$CAND_VERSION" name >/dev/null 2>&1; then
-                  LATEST_PKG="@unicode/unicode-$CAND_VERSION"
-                  break 2
+                  FOUND_VERSIONS+=("$CAND_VERSION")
                 fi
               done
             done
+            # Select the highest version found, excluding current version if it's the only one
+            if [ ${#FOUND_VERSIONS[@]} -gt 0 ]; then
+              SORTED_VERSIONS=$(printf '%s\n' "${FOUND_VERSIONS[@]}" | sort -V)
+              HIGHEST_VERSION=$(echo "$SORTED_VERSIONS" | tail -1)
+              LATEST_PKG="@unicode/unicode-$HIGHEST_VERSION"
+            fi
           fi
 
           if [ -z "$LATEST_PKG" ]; then
