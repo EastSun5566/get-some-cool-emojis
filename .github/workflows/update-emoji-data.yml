@@ -39,7 +39,7 @@ jobs:
           echo "Current version: $CURRENT_VERSION"
 
           # Find the latest Unicode package
-          # Try multiple methods to find the latest package
+          # Find the latest Unicode package using npm search, with fallback to version probing
           LATEST_PKG=$(npm search @unicode/unicode --json 2>/dev/null | \
             jq -r '.[].name' | \
             grep -E '^@unicode/unicode-[0-9]+\.[0-9]+\.[0-9]+$' | \
