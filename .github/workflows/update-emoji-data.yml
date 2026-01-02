@@ -1,0 +1,134 @@
+name: Update Emoji Data
+
+on:
+  schedule:
+    # Run weekly on Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:  # Allow manual trigger for testing or immediate updates
+
+jobs:
+  update-emoji-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for latest Unicode version
+        id: check_unicode
+        run: |
+          # Get current Unicode package from package.json
+          CURRENT_PKG=$(node -pe "Object.keys(require('./package.json').devDependencies || {}).find(name => name.startsWith('@unicode/unicode-'))")
+          if [ -z "$CURRENT_PKG" ] || [ "$CURRENT_PKG" = "undefined" ]; then
+            echo "Error: No Unicode package found in devDependencies. Please check if the Unicode package name has changed or verify the devDependencies in package.json."
+            exit 1
+          fi
+          echo "Current package: $CURRENT_PKG"
+
+          # Extract version number (e.g., 15.0.0 from @unicode/unicode-15.0.0)
+          CURRENT_VERSION=$(echo "$CURRENT_PKG" | sed 's/@unicode\/unicode-//')
+          echo "Current version: $CURRENT_VERSION"
+
+          # Find the latest Unicode package using npm search, with fallback to version probing
+          LATEST_PKG=$(npm search @unicode/unicode --json 2>/dev/null | \
+            jq -r '.[].name' | \
+            grep -E '^@unicode/unicode-[0-9]+\.[0-9]+\.[0-9]+$' | \
+            sort -V | \
+            tail -1)
+
+          # Fallback: if search didn't work, probe versions relative to current
+          if [ -z "$LATEST_PKG" ]; then
+            echo "npm search failed, probing versions based on current version..."
+            # NOTE: This is a fallback that probes Unicode versions starting from the
+            # current major version and moving upwards. When new major Unicode
+            # releases appear, maintainers can increase MAX_MAJOR_OFFSET or adjust
+            # the probed minor/patch versions if needed.
+            CURRENT_MAJOR="${CURRENT_VERSION%%.*}"
+            MAX_MAJOR_OFFSET=10
+            FOUND_VERSIONS=()
+            for ((offset = 0; offset <= MAX_MAJOR_OFFSET; offset++)); do
+              CAND_MAJOR=$((CURRENT_MAJOR + offset))
+              for CAND_VERSION in \
+                "$CAND_MAJOR.1.0" \
+                "$CAND_MAJOR.0.0"
+              do
+                if npm view "@unicode/unicode-$CAND_VERSION" name >/dev/null 2>&1; then
+                  FOUND_VERSIONS+=("$CAND_VERSION")
+                fi
+              done
+            done
+            # Select the highest version found, excluding current version if it's the only one
+            if [ ${#FOUND_VERSIONS[@]} -gt 0 ]; then
+              SORTED_VERSIONS=$(printf '%s\n' "${FOUND_VERSIONS[@]}" | sort -V)
+              HIGHEST_VERSION=$(echo "$SORTED_VERSIONS" | tail -1)
+              LATEST_PKG="@unicode/unicode-$HIGHEST_VERSION"
+            fi
+          fi
+
+          if [ -z "$LATEST_PKG" ]; then
+            echo "Error: Could not find any Unicode package. This may indicate a network issue or that npm search is unavailable. Please check npm registry status or try running this workflow again later."
+            exit 1
+          fi
+
+          echo "Latest package: $LATEST_PKG"
+
+          # Extract latest version number
+          LATEST_VERSION=$(echo "$LATEST_PKG" | sed 's/@unicode\/unicode-//')
+          echo "Latest version: $LATEST_VERSION"
+
+          # Set outputs
+          echo "current_pkg=$CURRENT_PKG" >> $GITHUB_OUTPUT
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "latest_pkg=$LATEST_PKG" >> $GITHUB_OUTPUT
+          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+
+          # Check if update is needed using sort -V for proper version comparison
+          NEWER=$(printf "%s\n%s" "$CURRENT_VERSION" "$LATEST_VERSION" | sort -V | tail -1)
+          if [ "$CURRENT_VERSION" != "$LATEST_VERSION" ] && [ "$NEWER" = "$LATEST_VERSION" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "Update needed: $CURRENT_VERSION -> $LATEST_VERSION"
+          else
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+            echo "Already up to date"
+          fi
+
+      - name: Update Unicode package
+        if: steps.check_unicode.outputs.needs_update == 'true'
+        run: |
+          # Remove old Unicode package
+          npm rm ${{ steps.check_unicode.outputs.current_pkg }}
+
+          # Install new Unicode package
+          npm i ${{ steps.check_unicode.outputs.latest_pkg }} --save-dev
+
+      - name: Build emoji data
+        if: steps.check_unicode.outputs.needs_update == 'true'
+        run: npm run build
+
+      - name: Create Pull Request
+        if: steps.check_unicode.outputs.needs_update == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update emoji data to Unicode ${{ steps.check_unicode.outputs.latest_version }}"
+          title: "chore: update emoji data to Unicode ${{ steps.check_unicode.outputs.latest_version }}"
+          body: |
+            This PR updates the emoji data to the latest Unicode version.
+
+            - **Current version**: ${{ steps.check_unicode.outputs.current_version }}
+            - **New version**: ${{ steps.check_unicode.outputs.latest_version }}
+
+            The emoji data has been regenerated using `npm run build`.
+
+            This PR was created automatically by the [Update Emoji Data](${{ github.server_url }}/${{ github.repository }}/actions/workflows/update-emoji-data.yml) workflow.
+          branch: "update-emoji-data-${{ steps.check_unicode.outputs.latest_version }}"
+          delete-branch: true
