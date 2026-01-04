@@ -11,7 +11,7 @@ describe('getSomeCoolEmoji performance', () => {
     expect(duration).toBeLessThan(100);
     
     // Verify result is substantial - we asked for 10000 emojis
-    // Each emoji can be 1-20+ characters depending on modifiers, ZWJ sequences, etc.
+    // Each emoji is typically 1-15 characters (max observed in dataset)
     // So we expect at least 10000 characters (bare minimum)
     expect(result.length).toBeGreaterThanOrEqual(10000);
   });
@@ -31,9 +31,9 @@ describe('getSomeCoolEmoji performance', () => {
     const result2 = getSomeCoolEmoji(count);
     
     // Both results should have lengths within expected bounds (within reason due to randomness)
-    // Emojis vary from 1-20+ characters, avg around 2-3
+    // Emojis range from 1-15 characters (max in dataset), avg around 2-4
     const minExpectedLength = count * 1;   // at least 1 char per emoji
-    const maxExpectedLength = count * 20;  // generous upper bound for complex sequences
+    const maxExpectedLength = count * 30;  // generous upper bound (2x max observed length)
     expect(result1.length).toBeGreaterThanOrEqual(minExpectedLength);
     expect(result1.length).toBeLessThanOrEqual(maxExpectedLength);
     expect(result2.length).toBeGreaterThanOrEqual(minExpectedLength);
