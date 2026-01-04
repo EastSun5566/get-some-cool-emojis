@@ -24,13 +24,13 @@ describe('getSomeCoolEmoji performance', () => {
     expect(result.length).toBeGreaterThanOrEqual(50000);
   });
   
-  it('should generate output with reasonable length bounds for given count', () => {
-    // While emoji selection is random, each output's length should fall within reasonable bounds for the same count
+  it('should produce statistically consistent output lengths', () => {
+    // While emoji selection is random, multiple runs should produce similar average lengths
     const count = 100;
     const result1 = getSomeCoolEmoji(count);
     const result2 = getSomeCoolEmoji(count);
     
-    // Both results should have lengths within expected bounds (within reason due to randomness)
+    // Both results should have lengths within expected bounds
     // Emojis range from 1-15 characters (max in dataset), avg around 2-4
     const minExpectedLength = count * 1;   // at least 1 char per emoji
     const maxExpectedLength = count * 30;  // generous upper bound (2x max observed length)
@@ -38,5 +38,10 @@ describe('getSomeCoolEmoji performance', () => {
     expect(result1.length).toBeLessThanOrEqual(maxExpectedLength);
     expect(result2.length).toBeGreaterThanOrEqual(minExpectedLength);
     expect(result2.length).toBeLessThanOrEqual(maxExpectedLength);
+    
+    // The two results should have similar lengths (within 50% of each other)
+    // due to statistical distribution of emoji selection
+    const ratio = Math.max(result1.length, result2.length) / Math.min(result1.length, result2.length);
+    expect(ratio).toBeLessThan(1.5);  // Results shouldn't differ by more than 50%
   });
 });
