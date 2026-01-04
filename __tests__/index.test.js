@@ -3,7 +3,7 @@ const emojiRegex = require('emoji-regex/RGI_Emoji')();
 const getSomeCoolEmoji = require('../dist');
 
 describe('getSomeCoolEmoji', () => {
-  it('should be return empty string if arg is not a number', () => {
+  it('should return empty string if arg is not a number', () => {
     const args = [
       '',
       'test',
@@ -23,7 +23,7 @@ describe('getSomeCoolEmoji', () => {
     });
   });
 
-  it('should be return empty string if arg is zero or negative', () => {
+  it('should return empty string if arg is zero or negative', () => {
     const args = [
       0,
       -1,
@@ -35,7 +35,7 @@ describe('getSomeCoolEmoji', () => {
     });
   });
 
-  it.skip('should be return string and match emoji regex if arg is positive', () => {
+  it('should return string and match emoji regex if arg is positive', () => {
     const args = [
       12,
       100,
@@ -43,7 +43,7 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
-      expect(emojiRegex.test(getSomeCoolEmoji(arg))).toBe(true);
+      expect(getSomeCoolEmoji(arg).match(emojiRegex)).not.toBeNull();
     });
   });
 });
