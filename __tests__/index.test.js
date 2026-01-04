@@ -35,7 +35,7 @@ describe('getSomeCoolEmoji', () => {
     });
   });
 
-  it('should be return string and match emoji regex if arg is positive', () => {
+  it('should return string and match emoji regex if arg is positive', () => {
     const args = [
       12,
       100,
@@ -43,7 +43,7 @@ describe('getSomeCoolEmoji', () => {
     ];
 
     args.forEach((arg) => {
-      expect(emojiRegex.test(getSomeCoolEmoji(arg))).toBe(true);
+      expect(getSomeCoolEmoji(arg).match(emojiRegex)).not.toBeNull();
     });
   });
 });
