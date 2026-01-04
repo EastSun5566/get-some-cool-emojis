@@ -159,6 +159,12 @@
 
       let timeoutId;
 
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
       function updateEmojis() {
         const number = parseInt(numberInput.value, 10) || 0;
         const emojis = getSomeCoolEmojis(number) || 'GET SOME COOL EMOJIS 🔥';
@@ -166,9 +172,10 @@
         emojiDisplay.textContent = emojis;
         
         const actualCount = number < 0 ? 0 : (Math.floor(number) || 0);
+        const escapedEmojis = escapeHtml(emojis);
         codeDisplay.innerHTML = `<span class="code-keyword">import</span> getSomeCoolEmojis <span class="code-keyword">from</span> <span class="code-string">'get-some-cool-emojis'</span>;
 
-getSomeCoolEmojis(<span class="code-number">${number}</span>); <span class="code-comment">// return ${actualCount} emojis | ${emojis}</span>`;
+getSomeCoolEmojis(<span class="code-number">${number}</span>); <span class="code-comment">// return ${actualCount} emojis | ${escapedEmojis}</span>`;
       }
 
       numberInput.addEventListener('input', () => {
