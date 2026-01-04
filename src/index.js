@@ -30,12 +30,10 @@ const parse2Int = (param) => Math.floor(Number(param === true ? 0 : param)) || 0
  */
 module.exports = (number = 0) => {
   const max = parse2Int(number);
-
   if (max <= 0) return '';
 
   const emojiCount = EMOJIS.length;
   const result = new Array(max);
-
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < max; i++) {
     result[i] = EMOJIS[Math.floor(Math.random() * emojiCount)];
