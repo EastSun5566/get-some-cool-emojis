@@ -42,7 +42,7 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@types/jest": "^26.0.24",
-    "@unicode/unicode-15.0.0": "^1.6.16",
+    "@unicode/unicode-17.0.0": "^1.6.16",
     "babel-loader": "^8.4.1",
     "emoji-regex": "^9.2.2",
     "eslint": "^6.8.0",
