@@ -24,13 +24,13 @@ describe('getSomeCoolEmoji performance', () => {
     expect(result.length).toBeGreaterThanOrEqual(50000);
   });
   
-  it('should generate consistent output for the same count', () => {
-    // While emoji selection is random, the output length should be consistent for the same count
+  it('should generate output with reasonable length bounds for given count', () => {
+    // While emoji selection is random, each output's length should fall within reasonable bounds for the same count
     const count = 100;
     const result1 = getSomeCoolEmoji(count);
     const result2 = getSomeCoolEmoji(count);
     
-    // Both should have similar lengths (within reason due to randomness)
+    // Both results should have lengths within expected bounds (within reason due to randomness)
     // Emojis vary from 1-20+ characters, avg around 2-3
     const minExpectedLength = count * 1;   // at least 1 char per emoji
     const maxExpectedLength = count * 20;  // generous upper bound for complex sequences
