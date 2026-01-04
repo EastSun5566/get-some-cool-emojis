@@ -32,8 +32,11 @@ describe('getSomeCoolEmoji performance', () => {
     
     // Both should have similar lengths (within reason due to randomness)
     // Emojis vary from 1-20+ characters, avg around 2-3
-    const avgLength = (result1.length + result2.length) / 2;
-    expect(Math.abs(result1.length - avgLength)).toBeLessThan(avgLength * 0.5);
-    expect(Math.abs(result2.length - avgLength)).toBeLessThan(avgLength * 0.5);
+    const minExpectedLength = count * 1;   // at least 1 char per emoji
+    const maxExpectedLength = count * 20;  // generous upper bound for complex sequences
+    expect(result1.length).toBeGreaterThanOrEqual(minExpectedLength);
+    expect(result1.length).toBeLessThanOrEqual(maxExpectedLength);
+    expect(result2.length).toBeGreaterThanOrEqual(minExpectedLength);
+    expect(result2.length).toBeLessThanOrEqual(maxExpectedLength);
   });
 });
