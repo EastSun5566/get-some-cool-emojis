@@ -16,7 +16,7 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/extensions
 const EMOJIS = require('./__EMOJIS__');
-const { parse2Int, getRandomInt } = require('./utils');
+const { parse2Int } = require('./utils');
 
 /**
  * Get Random emojis
@@ -26,7 +26,7 @@ const { parse2Int, getRandomInt } = require('./utils');
  */
 module.exports = (number = 0) => {
   const max = parse2Int(number);
-  
+
   if (max <= 0) return '';
 
   const emojiCount = EMOJIS.length;
@@ -34,7 +34,7 @@ module.exports = (number = 0) => {
 
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < max; i++) {
-    result[i] = EMOJIS[getRandomInt(0, emojiCount - 1)];
+    result[i] = EMOJIS[Math.floor(Math.random() * emojiCount)];
   }
 
   return result.join('');
