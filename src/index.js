@@ -27,11 +27,5 @@ const { parse2Int, getRandomInt } = require('./utils');
 module.exports = (number = 0) => {
   const max = parse2Int(number);
 
-  let emojis = '';
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < max; i++) {
-    emojis += EMOJIS[getRandomInt(0, EMOJIS.length - 1)];
-  }
-
-  return emojis;
+  return Array.from({ length: max }, () => EMOJIS[getRandomInt(0, EMOJIS.length - 1)]).join('');
 };
