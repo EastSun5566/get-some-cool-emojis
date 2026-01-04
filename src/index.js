@@ -16,7 +16,11 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved, import/extensions
 const EMOJIS = require('./__EMOJIS__');
-const { parse2Int } = require('./utils');
+
+/**
+ * @param {unknown} param
+ */
+const parse2Int = (param) => Math.floor(Number(param === true ? 0 : param)) || 0;
 
 /**
  * Get Random emojis
