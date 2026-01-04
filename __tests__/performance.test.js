@@ -16,7 +16,7 @@ describe('getSomeCoolEmoji performance', () => {
     expect(result.length).toBeGreaterThanOrEqual(10000);
   });
 
-  it('should not cause memory issues with very large numbers', () => {
+  it('should handle very large numbers without errors', () => {
     // Test that we can generate a large number without throwing
     const result = getSomeCoolEmoji(50000);
     
