@@ -2,9 +2,9 @@ const getSomeCoolEmoji = require('../dist');
 
 describe('getSomeCoolEmoji performance', () => {
   it('should handle large numbers efficiently', () => {
-    const start = Date.now();
+    const start = performance.now();
     const result = getSomeCoolEmoji(10000);
-    const end = Date.now();
+    const end = performance.now();
     const duration = end - start;
 
     // Should complete in reasonable time (less than 100ms for 10000 emojis)
