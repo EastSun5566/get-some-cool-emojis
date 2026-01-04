@@ -25,7 +25,7 @@ describe('getSomeCoolEmoji performance', () => {
   });
   
   it('should generate consistent output for the same count', () => {
-    // While random, the number of selections should be deterministic
+    // While emoji selection is random, the output length should be consistent for the same count
     const count = 100;
     const result1 = getSomeCoolEmoji(count);
     const result2 = getSomeCoolEmoji(count);
