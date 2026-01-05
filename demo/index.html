@@ -168,7 +168,7 @@
         
         emojiDisplay.textContent = emojis;
         
-        const actualCount = number < 0 ? 0 : (Math.floor(number) || 0);
+        const actualCount = Math.max(0, Math.floor(number));
         const escapedEmojis = escapeHtml(emojis);
         codeDisplay.innerHTML = `<span class="code-keyword">import</span> getSomeCoolEmojis <span class="code-keyword">from</span> <span class="code-string">'get-some-cool-emojis'</span>;
 
