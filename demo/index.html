@@ -171,10 +171,11 @@
         emojiDisplay.textContent = emojis;
         
         const actualCount = Math.max(0, Math.floor(number));
+        const safeNumber = Number.isFinite(number) ? number.toString() : '0';
         const escapedEmojis = escapeHtml(emojis);
         codeDisplay.innerHTML = `<span class="code-keyword">import</span> getSomeCoolEmojis <span class="code-keyword">from</span> <span class="code-string">'get-some-cool-emojis'</span>;
 
-getSomeCoolEmojis(<span class="code-number">${number}</span>); <span class="code-comment">// return ${actualCount} emojis | ${escapedEmojis}</span>`;
+getSomeCoolEmojis(<span class="code-number">${safeNumber}</span>); <span class="code-comment">// return ${actualCount} emojis | ${escapedEmojis}</span>`;
       }
 
       numberInput.addEventListener('input', () => {
