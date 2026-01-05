@@ -33,5 +33,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build
+      - run: npm i -g npm@latest
       - name: Publish to NPM via OIDC
         run: npm publish
