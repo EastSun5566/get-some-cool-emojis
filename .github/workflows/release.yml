@@ -37,22 +37,3 @@ jobs:
         run: npm run build
       - name: Publish to NPM via OIDC
         run: npm publish --provenance
-
-  deploy-demo:
-    needs: publish-npm
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: 'npm'
-      - run: |
-          cd demo
-          npm i
-          npm i get-some-cool-emojis@latest
-          npm run build
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: demo/dist
