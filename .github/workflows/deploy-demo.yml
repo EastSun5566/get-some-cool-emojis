@@ -1,9 +1,6 @@
 name: Deploy Demo
 
 on:
-  push:
-    tags:
-      - "v*"
   workflow_dispatch:
 
 concurrency:
