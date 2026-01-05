@@ -3,8 +3,8 @@ name: Update Emoji Data
 on:
   schedule:
     # Run weekly on Monday at 00:00 UTC
-    - cron: '0 0 * * 1'
-  workflow_dispatch:  # Allow manual trigger for testing or immediate updates
+    - cron: "0 0 * * 1"
+  workflow_dispatch: # Allow manual trigger for testing or immediate updates
 
 jobs:
   update-emoji-data:
@@ -17,8 +17,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-          cache: 'npm'
+          node-version: 22.x
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
