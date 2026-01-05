@@ -164,7 +164,7 @@
 
       function updateEmojis() {
         const number = parseInt(numberInput.value, 10) || 0;
-        const emojis = (typeof window !== 'undefined' && typeof window.getSomeCoolEmojis === 'function')
+        const emojis = (typeof window.getSomeCoolEmojis === 'function')
           ? window.getSomeCoolEmojis(number)
           : 'GET SOME COOL EMOJIS 🔥';
         
