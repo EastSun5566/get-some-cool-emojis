@@ -43,7 +43,7 @@
     "@unicode/unicode-17.0.0": "^1.6.16",
     "babel-loader": "^8.4.1",
     "emoji-regex": "^9.2.2",
-    "eslint": "^6.8.0",
+    "eslint": "^10.0.3",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.32.0",
     "husky": "^3.1.0",
