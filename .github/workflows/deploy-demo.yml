@@ -2,8 +2,7 @@ name: Deploy Demo
 
 on:
   push:
-    tags:
-      - "v*"
+    branches: [master]
   workflow_dispatch:
 
 concurrency:
@@ -11,18 +10,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # e2e the demo built from this commit before deploying it
   build-demo:
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build:demo
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "demo"
+          path: "_site"
 
   deploy-demo:
     needs: build-demo
@@ -33,7 +41,28 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # e2e the live site
+  verify-demo:
+    needs: deploy-demo
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "npm"
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          BASE_URL: ${{ needs.deploy-demo.outputs.page_url }}
+          EXPECTED_SHA: ${{ github.sha }}
