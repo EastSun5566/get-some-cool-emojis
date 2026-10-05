@@ -18,4 +18,13 @@ module.exports = {
   },
   rules: {
   },
+  overrides: [
+    {
+      // dynamic `import()` is used to load ESM-only Unicode data packages
+      files: ['scripts/**/*.js'],
+      parserOptions: {
+        ecmaVersion: 2020,
+      },
+    },
+  ],
 };
