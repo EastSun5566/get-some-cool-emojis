@@ -7,7 +7,7 @@ git checkout master
 git pull
 
 echo "bump version & tag"
-npx standard-version
+npx commit-and-tag-version
 
 echo "push tag"
 git push --follow-tags
