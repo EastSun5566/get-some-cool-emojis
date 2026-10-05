@@ -87,3 +87,7 @@ typings/
 
 # Generated emoji data
 src/__EMOJIS__.js
+
+# Demo site and e2e output
+_site/
+test-results/

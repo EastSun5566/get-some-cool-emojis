@@ -10,6 +10,8 @@
   "scripts": {
     "gen:emojis": "node scripts/gen-emojis",
     "build": "npm run gen:emojis && webpack --mode production && cp src/index.d.ts dist",
+    "build:demo": "npm run build && node scripts/build-demo",
+    "test:e2e": "playwright test",
     "test": "npm run build && jest",
     "lint": "eslint --fix --ignore-path .gitignore src",
     "release": "sh scripts/release.sh"
@@ -38,6 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
+    "@playwright/test": "^1.63.0",
     "@types/jest": "^26.0.24",
     "@unicode/unicode-18.0.0": "^2.0.7",
     "babel-loader": "^8.4.1",
