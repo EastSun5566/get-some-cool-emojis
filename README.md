@@ -29,6 +29,8 @@ import getSomeCoolEmojis from "get-some-cool-emojis";
 getSomeCoolEmojis(5); // return 5 emojis 🎉✨🔧🐛💩
 ```
 
+Invalid or non-positive input (`0`, `-1`, `NaN`, `Infinity`, ...) returns an empty string, and the count is capped at 1,000,000.
+
 ## Updating emoji data
 
 emoji data is from [Unicode data](https://github.com/node-unicode/node-unicode-data).
