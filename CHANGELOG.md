@@ -1,6 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [3.3.0](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.2.8...v3.3.0) (2026-11-12)
+
+### Features
+
+* **demo:** deploy on every merge to master with e2e verification ([#141](https://github.com/EastSun5566/get-some-cool-emojis/issues/141)) ([7028675](https://github.com/EastSun5566/get-some-cool-emojis/commit/70286757524a08100279b59b5b32b90f1e3338ba))
+
+### Bug Fixes
+
+* handle Infinity/huge counts and correct the TypeScript typings ([#139](https://github.com/EastSun5566/get-some-cool-emojis/issues/139)) ([e89a90f](https://github.com/EastSun5566/get-some-cool-emojis/commit/e89a90fd4213c67d6e21c3c4c4061e12aaae81b4))
+* **scripts:** support ESM-only Unicode data packages in gen-emojis ([#136](https://github.com/EastSun5566/get-some-cool-emojis/issues/136)) ([ebb812d](https://github.com/EastSun5566/get-some-cool-emojis/commit/ebb812dca388f6e30e1e8e4753dded58fb72b732))
 
 ### [3.2.8](https://github.com/EastSun5566/get-some-cool-emojis/compare/v3.2.7...v3.2.8) (2026-01-05)
 

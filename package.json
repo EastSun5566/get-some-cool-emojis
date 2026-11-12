@@ -1,6 +1,6 @@
 {
   "name": "get-some-cool-emojis",
-  "version": "3.2.8",
+  "version": "3.3.0",
   "description": "🏭 Just generate some random Emojis 🎉✨🔧🐛💩",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
